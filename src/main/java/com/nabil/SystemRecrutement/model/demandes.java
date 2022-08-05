@@ -45,6 +45,8 @@ public class demandes extends AbstractEntity {
 	private String lettreMotivation ;
 	@Column(name="Contact")
 	private String Contact ; 
+	@Column(name="email")
+	private String email ; 
 	
 	
 	@ManyToOne
@@ -52,7 +54,7 @@ public class demandes extends AbstractEntity {
 	private recruteur recruteur ;
 	
 	@ManyToMany(mappedBy = "demandes")
-	private List<Candidat> condidat ;
+	private List<Candidat> candidat ;
 	
 	
 	@ManyToOne

@@ -37,13 +37,13 @@ public class AbstractEntity {
 	
 	@CreatedDate
 	@Column(name="reactionDate" , nullable = false )
-	@JsonIgnore 
+	
 	private Instant creationDate ; 
 	
 	
 	@LastModifiedDate
 	@Column(name="lastModifiedDate"  )
-	@JsonIgnore 
+	 
     private Instant lastModifiedDate ;
 	
 	
