@@ -7,9 +7,9 @@ import com.nabil.SystemRecrutement.dto.CandidatDto;
 
 public interface CandidatService {
 	
-   CandidatDto save(CandidatDto dto) ;
+    CandidatDto save(CandidatDto dto) ;
 	
-   CandidatDto findById(Long id);
+    CandidatDto findById(Long id);
 	
 	List<CandidatDto> findAll();
 	

@@ -10,7 +10,9 @@ import static com.nabil.SystemRecrutement.util.Constants.APP_ROOT;
 import java.util.List;
 
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -28,17 +30,11 @@ public interface CandidatApi {
 			@ApiResponse(code= 200 , message ="le candidat cree / modifie") ,
 			@ApiResponse(code=400 , message="le candidat n'est pas valide ")
 	})
-	
 	CandidatDto save(@RequestBody CandidatDto dto);
 	
 	
-	
+	 @GetMapping(value=APP_ROOT + "/candidat/{idCondidat}" ,  produces = MediaType.APPLICATION_JSON_VALUE)
 	 CandidatDto findById(Long id) ;
-	 
-	 
-	 
-	 
-	 
 	 
 	 // http://localhost:8081/systemrecrutement/v1/candidat/All
 	 
@@ -46,7 +42,9 @@ public interface CandidatApi {
 	 List<CandidatDto> findAll() ;
 	 
 	 
-	void  delete(Long id) ;
+	 //http://localhost:8081/systemrecrutement/v1/candidat/delete/7
+	 @DeleteMapping(value=APP_ROOT + "/candidat/delete/{idCandidat}" )
+	 void  delete(@PathVariable("idCandidat") Long id) ;
 	
 
 }

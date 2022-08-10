@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.nabil.SystemRecrutement.Repository.candidatRepository;
 import com.nabil.SystemRecrutement.Validator.candidatValidator;
 import com.nabil.SystemRecrutement.dto.CandidatDto;
@@ -57,8 +56,8 @@ public class CandidatServiceImpl implements CandidatService {
 			log.error("candidat ID is null");
 			
 		
-			return null ;
-		}
+		return null ;
+		    }
 		
 		Optional<Candidat> candidat = candidatRepository.findById(id);
 		
@@ -66,7 +65,8 @@ public class CandidatServiceImpl implements CandidatService {
 		
 		return Optional.of(CandidatDto.fromEntity(candidat.get())).orElseThrow( () ->  
 		new EntityNotFoundException(
-				"Aucun candidat avec l'ID =" + id + "n'ete trouve dans la BDD" , ErrorCodes.CANDIDAT_NOT_FOUND   ));
+				"Aucun candidat avec l'ID =" + id + "n'ete trouve dans la BDD" , ErrorCodes.CANDIDAT_NOT_FOUND   
+				));
 	}
 	
 	
@@ -91,10 +91,11 @@ public class CandidatServiceImpl implements CandidatService {
 		
 		if(id==null) {
 			log.error("Candidat ID is null");
-			return  ;
+			
+			
 		}
 		
-		candidatRepository.deleteById(id);
+		 candidatRepository.deleteById(id);
 		
 		
 	}
