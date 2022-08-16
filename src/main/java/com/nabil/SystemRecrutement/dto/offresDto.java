@@ -10,7 +10,8 @@ import lombok.Data;
 @Data
 @Builder
 public class offresDto {
-
+     
+	private String code ;
 	private Long   id  ;
 	private String  titre ;
 	private String  description ;
@@ -28,6 +29,7 @@ public class offresDto {
 		}
 		
 		return offresDto.builder()
+				.code(offres.getCode())
 				.id(offres.getId())
 				.titre(offres.getTitre())
 				.description(offres.getDescription())
@@ -55,6 +57,7 @@ public class offresDto {
 		}
 		
 		Offres offres = new Offres();
+		offres.setCode(offresDto.getCode());
 		offres.setId(offresDto.getId()); 
 		offres.setTitre(offresDto.getTitre());
 		offres.setDescription(offresDto.getDescription());

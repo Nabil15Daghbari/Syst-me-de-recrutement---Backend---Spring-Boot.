@@ -26,8 +26,6 @@ import lombok.NoArgsConstructor;
 @Table(name="RECRUTEUR")
 public class recruteur extends AbstractEntity {
 	
-	
-	
 	@Column(name="nom")
 	private String nom ;
 	@Column(name="prenom")

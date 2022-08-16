@@ -1,6 +1,6 @@
 package com.nabil.SystemRecrutement.model;
 
-public enum etatDemande {
+public enum EtatDemande {
 	
 	ACCEPTER , REJETER , LISTEATTENTE
 

@@ -11,6 +11,7 @@ import lombok.Data;
 @Builder
 public class entretienDto {
 	
+	private String    code ;
 	private Long      id  ;
 	private String    nomCandidat ;
 	private String    prenomCandidat ;
@@ -26,6 +27,7 @@ public class entretienDto {
 		}
 		
 		return  entretienDto.builder()
+				.code(entretien.getCode())
 				.id(entretien.getId())
 				.nomCandidat(entretien.getNomCandidat())
 				.prenomCandidat(entretien.getPrenomCandidat())
@@ -43,6 +45,7 @@ public class entretienDto {
 		}
 		
 		entretien entretien = new entretien();
+		entretien.setCode(entretienDto.getCode());
 		entretien.setId(entretienDto.getId());
 		entretien.setNomCandidat(entretienDto.getNomCandidat());
 		entretien.setPrenomCandidat(entretienDto.getPrenomCandidat());

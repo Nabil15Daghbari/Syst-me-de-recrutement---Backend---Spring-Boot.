@@ -30,6 +30,8 @@ import lombok.NoArgsConstructor;
 @Table(name="CANDIDAT")
 public class Candidat extends AbstractEntity{
 	
+	@Column(name="code")
+	private String code ;
 	@Column(name="nom")
 	private String nom ; 
 	@Column(name="prenom")

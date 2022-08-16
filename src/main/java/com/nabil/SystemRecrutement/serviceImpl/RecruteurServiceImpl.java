@@ -57,7 +57,7 @@ public class RecruteurServiceImpl implements RecruteurService {
 		
 		return Optional.of(recruteurDto.fromEntity(recruteur.get())).orElseThrow( ()->
             new EntityNotFoundException(
-            		"Aucun offre avec l'id ="+id +"n'ete trouve dans la BDD" , ErrorCodes.OFFRE_NOT_FOUND
+            		"Aucun Recruteur avec l'id ="+id +"n'ete trouve dans la BDD" , ErrorCodes.RECRUTEUR_NOT_FOUND
             		
             		));
 	}

@@ -10,6 +10,8 @@ import lombok.Data;
 @Builder
 public class CandidatDto {
 
+	private String code ;
+	
 	private Long id ;
 	
 	private String nom ; 
@@ -43,6 +45,7 @@ public class CandidatDto {
 		
 		
 		return CandidatDto.builder()
+				.code(candidat.getCode())
 				.id(candidat.getId())
 				.nom(candidat.getNom())
 				.prenom(candidat.getPrenom())
@@ -76,6 +79,7 @@ public class CandidatDto {
 		}
 		
 		Candidat candidat = new Candidat();
+		candidat.setCode(candidatDto.getCode());
 		candidat.setId(candidatDto.getId());
 		candidat.setNom(candidatDto.getNom());
 		candidat.setPrenom(candidatDto.getPrenom());

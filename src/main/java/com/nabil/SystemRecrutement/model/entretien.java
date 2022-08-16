@@ -23,6 +23,8 @@ import lombok.NoArgsConstructor;
 @Table(name="ENTRETIEN")
 public class entretien extends AbstractEntity {
 	
+	@Column(name="code")
+	private String code ;
 	@Column(name="nomCandidat")
 	private String   nomCandidat ;
 	@Column(name="prenomCandidat")

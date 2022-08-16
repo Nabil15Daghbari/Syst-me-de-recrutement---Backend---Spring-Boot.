@@ -3,9 +3,9 @@ package com.nabil.SystemRecrutement.serviceImpl;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 import com.nabil.SystemRecrutement.Repository.contratsRepository;
 import com.nabil.SystemRecrutement.Validator.contratsValidator;
 import com.nabil.SystemRecrutement.dto.contratsDto;
@@ -88,6 +88,29 @@ public class ContratsServiceImp implements ContratsService{
 		
 		
 	}
+
+	/**
+
+	@Override
+	public contratsDto findByCodeContrat(String codeContrat) {
+		
+		if(!StringUtils.hasLength(codeContrat)) {
+			log.error("Code contrat is null");
+		}
+
+		Optional<contrats>  contrat = contratsRepository.findContratByCodeContrat(codeContrat);
+		
+		
+		return Optional.of(contratsDto.fromEntity(contrat.get())).orElseThrow(()->
+		
+				new EntityNotFoundException("Aucun contrat avec le code =" + codeContrat + "n'ete trouve dans la BDD" , ErrorCodes.CONTRATS_NOT_FOUND  
+		
+				
+				));
+				}
 	
 
+*/
+	
+	
 }

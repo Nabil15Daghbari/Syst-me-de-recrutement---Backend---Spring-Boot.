@@ -11,7 +11,7 @@
 	<groupId>com.nabil</groupId>
 	<artifactId>SystemRecrutement</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>SystemRecrutement</name>
 	<description>System recrutement en ligne et gestion du contrat </description>
 	<properties>
@@ -62,13 +62,43 @@
 			</dependency>
 			
 			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 		<dependency>
 			<groupId>com.flickr4java</groupId>
 			<artifactId>flickr4java</artifactId>
-			<version>2.12</version>
+			<version>3.0.4</version>
 		</dependency>
+		 <dependency>
+            <groupId>commons-configuration</groupId>
+            <artifactId>commons-configuration</artifactId>
+            <version>1.9</version>
+        </dependency>
 			
 			
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 			
 			 <dependency>
@@ -199,6 +229,60 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			
+			<plugin>
+			   <groupId>com.github.kongchen</groupId>
+               <artifactId>swagger-maven-plugin</artifactId>
+               <version>3.1.8</version>
+               <configuration>
+               <apiSources>
+               <apiSource>
+               <springmvc>true</springmvc>
+               <locations>
+               <location>com.nabil.SystemRecrutement.controller</location>
+               </locations>
+               <basePath>http://localhost:8081</basePath>
+               <info>
+               <title>Swagger Api Documentatio, for systeme du recrutement application </title> 
+               <version>${project.version}</version>
+               <description>Swagger Api documentation for system recrutement en ligne application </description>
+               <contact>
+                   <email> nabil.daghbari5@gmail.com</email>
+                   <name> Daghbari Nabil </name> 
+               </contact>
+               </info>
+               <outputPath>${project.build.directory}</outputPath>
+               <outputFormats>json</outputFormats>
+               <swaggerApiReader>com.github.kongchen.swagger.docgen.reader.SpringMvcApiReader</swaggerApiReader>
+               <swaggerDirectory>${project.build.directory}</swaggerDirectory>
+               </apiSource>
+               </apiSources>
+               </configuration>
+               <executions>
+               <execution>
+               <phase>install</phase>
+               <goals>
+               <goal>generate</goal>
+               </goals>
+               </execution>
+               </executions>
+               
+			</plugin>		
+			
+	
+		
+
+			<plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.10.1</version>
+            <configuration>
+                <release>11</release>
+            </configuration>
+            </plugin>
+			
+			
+			
 		</plugins>
 	</build>
 

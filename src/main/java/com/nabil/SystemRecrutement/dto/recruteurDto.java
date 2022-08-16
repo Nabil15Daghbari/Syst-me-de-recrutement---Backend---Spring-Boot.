@@ -12,6 +12,7 @@ import lombok.Data;
 @Builder
 public class recruteurDto {
 
+	
 	private Long id  ;
 	private String nom ;
 	private String prenom ;

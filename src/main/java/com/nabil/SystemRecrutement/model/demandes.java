@@ -27,6 +27,8 @@ import lombok.NoArgsConstructor;
 @Table(name="DEMANDES")
 public class demandes extends AbstractEntity {
 
+	@Column(name="code")
+	private String code ;
 	@Column(name="nomCandidat")
 	private String nomCondidat ;
 	@Column(name="prenomCondidat")
@@ -46,7 +48,9 @@ public class demandes extends AbstractEntity {
 	@Column(name="Contact")
 	private String Contact ; 
 	@Column(name="email")
-	private String email ; 
+	private String email ;
+	@Column(name="etatDemande")
+	private EtatDemande  etatDemande ;
 	
 	
 	@ManyToOne

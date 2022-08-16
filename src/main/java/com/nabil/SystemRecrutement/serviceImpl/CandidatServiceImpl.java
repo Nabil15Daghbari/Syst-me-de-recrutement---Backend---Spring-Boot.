@@ -92,6 +92,8 @@ public class CandidatServiceImpl implements CandidatService {
 		if(id==null) {
 			log.error("Candidat ID is null");
 			
+			return  ;
+			
 			
 		}
 		

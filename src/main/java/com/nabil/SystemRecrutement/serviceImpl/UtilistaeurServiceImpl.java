@@ -24,9 +24,11 @@ import lombok.extern.slf4j.Slf4j;
 public class UtilistaeurServiceImpl  implements UtilisateurService {
 	
 	
+	
    private utilisateurRepository utilistaeurRepository ;
 	
-	@Autowired
+   
+   @Autowired
 	public UtilistaeurServiceImpl(utilisateurRepository utilistaeurRepository) {
 		this.utilistaeurRepository = utilistaeurRepository ;
 	}

@@ -25,9 +25,14 @@ import lombok.NoArgsConstructor;
 @Table(name="CONTRATS")
 public class contrats extends AbstractEntity {
 
-	
+	@Column(name="code")
+	private String code ;
 	@Column(name="nomCandidat")
 	private String   nomCandidat ;
+	@Column(name="Cin")
+	private String    Cin   ;
+	@Column(name="Poste")
+    private String   poste ;
 	@Column(name="prenomCandidat")
 	private String   prenomCandidat ;
 	@Column(name="dateDebut")
@@ -38,6 +43,8 @@ public class contrats extends AbstractEntity {
 	private BigDecimal   salaire ;
 	@Column(name="signature")
 	private String   signature ; 
+	@Column(name="typeContrats")
+	private TypeContrats typeContrats ;
 	
 	
 	
