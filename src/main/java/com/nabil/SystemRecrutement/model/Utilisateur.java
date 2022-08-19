@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -46,10 +47,11 @@ public class Utilisateur extends AbstractEntity {
     private String photo ;
 	
 
-     @OneToMany(mappedBy="utilisateur")
+     @ManyToMany
      private List<Roles> roles;
-     
-     
+
+
+	
 		
 		     
      

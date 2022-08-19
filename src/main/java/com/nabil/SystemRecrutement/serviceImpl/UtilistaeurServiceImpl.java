@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.nabil.SystemRecrutement.Repository.utilisateurRepository;
+import com.nabil.SystemRecrutement.Repository.UtilisateurRepository;
 import com.nabil.SystemRecrutement.Validator.UtilisateurValidator;
 import com.nabil.SystemRecrutement.dto.utilisateurDto;
 import com.nabil.SystemRecrutement.exception.EntityNotFoundException;
@@ -25,11 +25,11 @@ public class UtilistaeurServiceImpl  implements UtilisateurService {
 	
 	
 	
-   private utilisateurRepository utilistaeurRepository ;
+   private UtilisateurRepository utilistaeurRepository ;
 	
    
    @Autowired
-	public UtilistaeurServiceImpl(utilisateurRepository utilistaeurRepository) {
+	public UtilistaeurServiceImpl(UtilisateurRepository utilistaeurRepository) {
 		this.utilistaeurRepository = utilistaeurRepository ;
 	}
 	

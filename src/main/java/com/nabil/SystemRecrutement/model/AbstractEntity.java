@@ -7,7 +7,6 @@ import javax.persistence.Column;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-//import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import org.springframework.data.annotation.CreatedDate;
@@ -38,13 +37,13 @@ public class AbstractEntity {
 	
 	
 	@CreatedDate
-	@Column(name="reactionDate" , nullable = false )
+	//@Column(name="creactionDate" , nullable =false   )
 	
 	private Instant creationDate ; 
 	
 	
 	@LastModifiedDate
-	@Column(name="lastModifiedDate"  )
+	//@Column(name="lastModifiedDate"  )
 	 
     private Instant lastModifiedDate ;
 	

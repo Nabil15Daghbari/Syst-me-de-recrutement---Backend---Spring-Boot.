@@ -12,13 +12,13 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+// je cherche un candidat par son id et son id contrat ==> v 26
 
 
 @Data
@@ -28,6 +28,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name="CANDIDAT")
+
 public class Candidat extends AbstractEntity{
 	
 	@Column(name="code")

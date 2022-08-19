@@ -7,5 +7,6 @@ public interface Constants {
 		 String APP_ROOT ="systemrecrutement/v1";
 		 
 		// String AUTHENTICATION_DENDPOINT = APP_ROOT + "/auth" ;
+		 String AUTHENTICATION_ENDPOINT = APP_ROOT +"/auth" ;
 
 }

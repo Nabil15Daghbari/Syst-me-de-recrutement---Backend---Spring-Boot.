@@ -5,4 +5,6 @@ import com.nabil.SystemRecrutement.model.Roles;
 
 public interface rolesRepository extends JpaRepository<Roles, Long>{
 
+	Roles findByRoleName(String roleName);
+	
 }

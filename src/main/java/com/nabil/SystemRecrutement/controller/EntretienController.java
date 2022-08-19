@@ -10,13 +10,13 @@ import com.nabil.SystemRecrutement.service.entretienService;
 
 
 @RestController
-public class EntretirnController implements EntretienApi{
+public class EntretienController implements EntretienApi{
 	
 	
 	private entretienService entretienService ;
 	
 	@Autowired
-	public EntretirnController (entretienService entretienService ) {
+	public EntretienController (entretienService entretienService ) {
 		this.entretienService =entretienService  ;
 	}
 
