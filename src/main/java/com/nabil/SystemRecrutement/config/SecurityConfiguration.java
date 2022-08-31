@@ -65,10 +65,20 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 	
 		http.csrf().disable() ;
+		http.authorizeRequests().antMatchers( "/swagger-resources",
+				"/swagger-resources/**",
+				"/configuration/ui",
+				"/configuration/security",
+				"/swagger-ui/index.html",
+				"/webjars/**",
+				"/v3/api-docs/**",
+				"/swagger-ui/**"
+				
+				).permitAll();
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		http.headers().frameOptions().disable() ;
 		//http.formLogin();
-		http.authorizeRequests().anyRequest().authenticated();
+	//	http.authorizeRequests().anyRequest().authenticated();
 		http.addFilter(new JwtAuthenticationFilters(authenticationManagerBean()) );
 		http.addFilterBefore(new JwtAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
 	}
@@ -80,7 +90,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 			// TODO Auto-generated method stub
 			return super.authenticationManagerBean();
 		}
-	
+	 
 
 	
 }

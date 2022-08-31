@@ -5,12 +5,13 @@ import java.util.List;
 
 import org.springframework.util.StringUtils;
 
+import com.nabil.SystemRecrutement.dto.appUserDto;
 import com.nabil.SystemRecrutement.dto.utilisateurDto;
 
 
 public class UtilisateurValidator {
 
-	public static List<String> Validate(utilisateurDto utilisateurDto){
+	public static List<String> Validate(appUserDto utilisateurDto){
 		
 	List<String> errors = new ArrayList<>();
 	
@@ -30,15 +31,15 @@ public class UtilisateurValidator {
 	if(!StringUtils.hasLength(utilisateurDto.getPrenom())) {
 		errors.add("Veuillez renseigner le prenom d'utilisateur");
 	}
-	if(!StringUtils.hasLength(utilisateurDto.getEmail())) {
+	if(!StringUtils.hasLength(utilisateurDto.getUsername())) {
 		errors.add("Veuillez renseigner l'email  d'utilisateur");
 	}
 	
-	if(!StringUtils.hasLength(utilisateurDto.getMotDePasse())) {
+	if(!StringUtils.hasLength(utilisateurDto.getPassword())) {
 		errors.add("Veuillez renseigner le mot passe  d'utilisateur");
 	}
 	
-	if(utilisateurDto.getDateDeNaissance()==null) {
+	if(utilisateurDto.getDateNes()==null) {
 		errors.add("Veuillez renseigner la date de naissance  d'utilisateur");
 	}
 	

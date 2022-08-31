@@ -5,5 +5,5 @@ import com.nabil.SystemRecrutement.model.AppUser;
 
 public interface AppUserRepository extends JpaRepository<AppUser, Long> {
 
-	AppUser findByUsername(String username);
+	AppUser findByUsername(String email);
 }

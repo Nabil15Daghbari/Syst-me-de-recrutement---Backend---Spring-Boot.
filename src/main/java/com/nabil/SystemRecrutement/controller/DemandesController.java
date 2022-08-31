@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.nabil.SystemRecrutement.controller.api.DemandesApi;
 import com.nabil.SystemRecrutement.dto.demandesDto;
+import com.nabil.SystemRecrutement.model.etatDemande;
 import com.nabil.SystemRecrutement.service.DemandesService;
 
 
@@ -44,6 +45,12 @@ public class DemandesController implements DemandesApi {
 	@Override
 	public void delete(Long id) {
 		demandesService.delete(id);		
+	}
+
+
+	@Override
+	public demandesDto updateEtatDemande(Long id, etatDemande etatDemande) {
+		return demandesService.updateEtatDemande(id, etatDemande);
 	}
 
 }

@@ -6,5 +6,7 @@ import com.nabil.SystemRecrutement.model.Candidat;
 
 
 public interface candidatRepository  extends JpaRepository<Candidat, Long>{
+	
+	
 
 }

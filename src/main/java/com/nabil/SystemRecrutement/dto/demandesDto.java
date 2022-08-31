@@ -1,11 +1,8 @@
 package com.nabil.SystemRecrutement.dto;
 
-import java.time.Instant;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import com.nabil.SystemRecrutement.model.EtatDemande;
+import java.util.Date;
 import com.nabil.SystemRecrutement.model.demandes;
+import com.nabil.SystemRecrutement.model.etatDemande;
 
 import lombok.Builder;
 import lombok.Data;
@@ -13,22 +10,20 @@ import lombok.Data;
 @Builder
 public class demandesDto {
     
-	private String code ;
 	private Long    id ;
-	private String  nomCondidat ;
-	private String  prenomCondidat ;
-	private Instant dateDemande ;
-	private String  experiencesProfessionnel ;
-	private String  Diplome ;
-	private String  sivp ;
-	private String  cv ;
-	private String  lettreMotivation ;
-	private String  Contact ; 
-	private String   email ; 
-	private EtatDemande etatDemande ;
-	private recruteurDto recruteur ;
-	private contratsDto contrats ;
-	private List<CandidatDto> candidat ;
+	private Date dateDemande ;
+	private float resultatConcours ;
+	private int StatutCondidature ;
+	private CandidatDto candidat ;
+	private offresDto offre ;
+	private etatDemande etatDemande ;
+	
+
+
+	
+	
+	
+	
 	
 	public static demandesDto fromEntity(demandes demande ) { 
 		
@@ -37,29 +32,14 @@ public class demandesDto {
 		}
 		
 		return   demandesDto.builder()
-				.code(demande.getCode())
 				.id(demande.getId())
-				.nomCondidat(demande.getNomCondidat())
-				.prenomCondidat(demande.getPrenomCondidat())
 				.dateDemande(demande.getDateDemande())
-				.experiencesProfessionnel(demande.getExperiencesProfessionnel())
-				.Diplome(demande.getDiplome())
-				.sivp(demande.getSivp())
-				.cv(demande.getCv())
-				.lettreMotivation(demande.getLettreMotivation())
-				.Contact(demande.getContact())
-				.email(demande.getEmail())
+				.resultatConcours(demande.getResultatConcours())
+				.StatutCondidature(demande.getStatutCondidature())
+				.candidat(CandidatDto.fromEntity(demande.getCandidat()))
+				.offre(offresDto.fromEntity(demande.getOffre()))
 				.etatDemande(demande.getEtatDemande())
-				.recruteur(recruteurDto.fromEntity(demande.getRecruteur()))
-				.contrats(contratsDto.fromEntity(demande.getContrats()))	
-				.candidat(
-						
-						demande.getCandidat() !=null ?
-						demande.getCandidat().stream()
-				    	.map(CandidatDto:: fromEntity)
-					    .collect(Collectors.toList()) : null
-								
-								)
+		
 						.build();		
 						
 						
@@ -73,25 +53,21 @@ public class demandesDto {
 		}
 		
 		demandes demandes =new demandes();
-		demandes.setCode(demandesDto.getCode());
 		demandes.setId(demandesDto.getId());
-		demandes.setNomCondidat(demandesDto.getNomCondidat());
-		demandes.setPrenomCondidat(demandesDto.getPrenomCondidat());
 		demandes.setDateDemande(demandesDto.getDateDemande());
-		demandes.setExperiencesProfessionnel(demandesDto.getExperiencesProfessionnel());
-		demandes.setDiplome(demandesDto.getDiplome());
-		demandes.setSivp(demandesDto.getSivp());
-		demandes.setCv(demandesDto.getCv());
-		demandes.setLettreMotivation(demandesDto.getLettreMotivation());
-		demandes.setContact(demandesDto.getContact());
-		demandes.setEmail(demandesDto.getEmail());
+		demandes.setResultatConcours(demandesDto.getResultatConcours());
+		demandes.setStatutCondidature(demandesDto.getStatutCondidature());
+		demandes.setCandidat(CandidatDto.toEntity(demandesDto.getCandidat()));
+		demandes.setOffre(offresDto.toEntity(demandesDto.getOffre()));
 		demandes.setEtatDemande(demandesDto.getEtatDemande());
-		demandes.setRecruteur(recruteurDto.toEntity(demandesDto.getRecruteur()));
-		demandes.setContrats(contratsDto.toEntity(demandesDto.getContrats()));
-		
 		
 		return demandes ;
 		
+	}
+	
+	@SuppressWarnings("static-access")
+	public boolean  isDemandeAccepte() { 
+		return etatDemande.ACCEPTER.equals(this.etatDemande);
 	}
 
 	

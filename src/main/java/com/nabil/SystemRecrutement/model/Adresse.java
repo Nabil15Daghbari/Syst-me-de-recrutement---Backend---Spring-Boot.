@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 
 
 
-@Builder
+
 @NoArgsConstructor 
 @AllArgsConstructor 
 @EqualsAndHashCode
@@ -31,13 +31,13 @@ public class Adresse implements Serializable {
 		this.adresse1 = adresse1;
 	}
 
-	public String getAdresse2() {
-		return adresse2;
-	}
+	//public String getAdresse2() {
+	//	return adresse2;
+	//}
 
-	public void setAdresse2(String adresse2) {
-		this.adresse2 = adresse2;
-	}
+	//public void setAdresse2(String adresse2) {
+	//	this.adresse2 = adresse2;
+	//}
 
 	public String getVille() {
 		return ville;
@@ -71,8 +71,8 @@ public class Adresse implements Serializable {
 	@Column(name="adresse1")
 	private String adresse1 ;
 	
-	@Column(name="adresse2")
-	private String adresse2 ;
+	//@Column(name="adresse2")
+	//private String adresse2 ;
 	
 	@Column(name="ville")
 	private String ville ;

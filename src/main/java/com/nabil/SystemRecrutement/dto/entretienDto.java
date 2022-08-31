@@ -17,9 +17,8 @@ public class entretienDto {
 	private String    prenomCandidat ;
 	private Instant   dateEntretien ;
 	private String    email ; 
-	private CandidatDto  candidat ;
-	private recruteurDto  recruteur ;
-	
+//	private CandidatDto  candidat ;
+//	private recruteurDto  recruteur ;
 	
 	public static entretienDto fromEntity(entretien entretien) {
 		if(entretien==null) {
@@ -33,8 +32,8 @@ public class entretienDto {
 				.prenomCandidat(entretien.getPrenomCandidat())
 				.dateEntretien(entretien.getDateEntretien())
 				.email(entretien.getEmail())
-				.candidat(CandidatDto.fromEntity(entretien.getCandidat()))
-				.recruteur(recruteurDto.fromEntity(entretien.getRecruteur()))
+		//		.candidat(CandidatDto.fromEntity(entretien.getCandidat()))
+		//		.recruteur(recruteurDto.fromEntity(entretien.getRecruteur()))
 				.build(); 
 		
 	}
@@ -51,8 +50,8 @@ public class entretienDto {
 		entretien.setPrenomCandidat(entretienDto.getPrenomCandidat());
 		entretien.setDateEntretien(entretienDto.getDateEntretien());
 		entretien.setEmail(entretienDto.getEmail());
-		entretien.setCandidat(CandidatDto.toEntity(entretienDto.getCandidat()));
-		entretien.setRecruteur(recruteurDto.toEntity(entretienDto.getRecruteur()));
+	//	entretien.setCandidat(CandidatDto.toEntity(entretienDto.getCandidat()));
+	//	entretien.setRecruteur(recruteurDto.toEntity(entretienDto.getRecruteur()));
 
 
 		return entretien ;

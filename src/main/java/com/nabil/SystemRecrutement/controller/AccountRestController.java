@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nabil.SystemRecrutement.controller.api.AccountApi;
+import com.nabil.SystemRecrutement.dto.appUserDto;
 import com.nabil.SystemRecrutement.dto.auth.RoleUserFrom;
 import com.nabil.SystemRecrutement.model.AppRole;
 import com.nabil.SystemRecrutement.model.AppUser;
@@ -27,10 +28,7 @@ public class AccountRestController implements AccountApi {
 	}
 
 
-	@Override
-	public AppUser saveUser(AppUser appUser) {
-		return accountService.addNewUser(appUser);
-	}
+	
 
 
 	@Override
@@ -43,9 +41,30 @@ public class AccountRestController implements AccountApi {
 	@Override
 	public void addRoleToUser(RoleUserFrom RoleUserFrom) {
 		
-		accountService.addRoleToUser( RoleUserFrom.getUsername() ,RoleUserFrom.getRolename());
+		accountService.addRoleToUser( RoleUserFrom.getUsername() , RoleUserFrom.getRolename());
 
 		
+	}
+
+
+	@Override
+	public appUserDto findById(Long id) {
+		return accountService.findById(id);
+	}
+
+
+	@Override
+	public void delete(Long id) {
+
+		accountService.delete(id);
+		
+		
+	}
+
+
+	@Override
+	public appUserDto saveUser(appUserDto appUser) {
+		return accountService.addNewUser(appUser);
 	}
 
 }

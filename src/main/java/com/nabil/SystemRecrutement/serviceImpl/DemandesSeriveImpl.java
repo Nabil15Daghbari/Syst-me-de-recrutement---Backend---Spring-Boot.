@@ -1,8 +1,10 @@
 package com.nabil.SystemRecrutement.serviceImpl;
 
+import java.awt.dnd.InvalidDnDOperationException;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import org.springframework.util.StringUtils;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,9 +14,10 @@ import com.nabil.SystemRecrutement.dto.demandesDto;
 import com.nabil.SystemRecrutement.exception.EntityNotFoundException;
 import com.nabil.SystemRecrutement.exception.ErrorCodes;
 import com.nabil.SystemRecrutement.exception.InvalidEntityExeption;
+import com.nabil.SystemRecrutement.exception.InvalidOperationException;
 import com.nabil.SystemRecrutement.model.demandes;
+import com.nabil.SystemRecrutement.model.etatDemande;
 import com.nabil.SystemRecrutement.service.DemandesService;
-
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -81,5 +84,65 @@ public class DemandesSeriveImpl  implements DemandesService{
 		
 		demandesRepository.deleteById(id);
 	}
+
+
+
+	@Override
+	public demandesDto updateEtatDemande(Long idDemande, etatDemande etatDemande) {
+		
+		checkIdDemande(idDemande);
+		
+		if(!StringUtils.hasLength(String.valueOf(etatDemande))) {
+			log.error("L'etat de la demande is Null");
+			throw new InvalidOperationException("Impossible de modifier l'etat de la demande avec un etat null", ErrorCodes.DEMANDES_NOT_MODIFIABLE);
+		}
+		
+		demandesDto demandes = checkEtatDemande(idDemande);
+		demandes.setEtatDemande(etatDemande);
+		
+		
+		return demandesDto.fromEntity(
+				demandesRepository.save(demandesDto.toEntity(demandes))	
+				
+				);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	private demandesDto checkEtatDemande(Long idDemande) {
+		demandesDto demande = findById(idDemande);
+		
+		if(demande.isDemandeAccepte()) {
+			throw new InvalidOperationException("imposible de modifier le demande lorsqu'elle est accepte" , ErrorCodes.DEMANDES_NOT_VALID);
+		}
+		
+		return demande ;
+	}
+	
+	
+	
+	
+	
+	private void checkIdDemande(Long idDemande) {
+		
+		
+		if(idDemande == null) {
+			log.error("Id demande est null ");
+			
+			throw new InvalidEntityExeption("L'ID demande n'est null ");
+			
+		}
+		
+		
+		
+}
 
 }

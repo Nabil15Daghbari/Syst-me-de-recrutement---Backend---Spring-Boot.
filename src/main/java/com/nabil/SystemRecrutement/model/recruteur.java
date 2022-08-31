@@ -1,5 +1,6 @@
 package com.nabil.SystemRecrutement.model;
 
+
 import java.util.List;
 
 import javax.persistence.Column;
@@ -15,10 +16,9 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-//inscription recruteur 
 
 @Data
-@Builder
+
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -26,6 +26,10 @@ import lombok.NoArgsConstructor;
 @Table(name="RECRUTEUR")
 public class recruteur extends AbstractEntity {
 	
+	
+	private String cin ;
+	private int age ;
+	private String email ;
 	@Column(name="nom")
 	private String nom ;
 	@Column(name="prenom")
@@ -41,18 +45,11 @@ public class recruteur extends AbstractEntity {
 	@Column(name="password")
 	private String password ; 
 	
+	private String Poste ;
 	
-	@OneToMany(mappedBy = "recruteur")
-	private List<Offres> offres ;
 	
-	@OneToMany(mappedBy = "recruteur")
-	private List<demandes> demandes ;
-	
-	@OneToMany(mappedBy = "recruteur")
-	private List<entretien> entretien ;
-	
-
-	
+    @OneToMany(mappedBy = "recruteur")
+    private List<Offres> offres ;
 	
 	
 

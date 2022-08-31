@@ -5,6 +5,8 @@ import java.time.Instant;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.nabil.SystemRecrutement.model.Candidat;
+import com.nabil.SystemRecrutement.model.Offres;
 import com.nabil.SystemRecrutement.model.TypeContrats;
 import com.nabil.SystemRecrutement.model.contrats;
 import lombok.Builder;
@@ -23,9 +25,10 @@ public class contratsDto {
 	private Instant  dateFin ;	
 	private BigDecimal salaire ;	
 	private String   signature ; 
-	private TypeContrats typeContrats ;
-	private List<CandidatDto> candidat ;	
-	private List<demandesDto> demandes ;
+	
+	
+//	private List<CandidatDto> candidat ;	
+//	private List<demandesDto> demandes ;
 	
 	
 	
@@ -46,21 +49,21 @@ public class contratsDto {
 				.dateFin(contrats.getDateFin())
 				.salaire(contrats.getSalaire())
 				.signature(contrats.getSignature())
-				.typeContrats(contrats.getTypeContrats())
-				.candidat(
-						contrats.getCandidat()!=null ?
-						contrats.getCandidat().stream()	
-					    .map(CandidatDto::fromEntity)
-					    .collect(Collectors.toList()) : null
+		//		.candidat(
+		//				contrats.getCandidat()!=null ?
+			//			contrats.getCandidat().stream()	
+			//		    .map(CandidatDto::fromEntity)
+				//	    .collect(Collectors.toList()) : null
 						
-						)
-				.demandes(
-						contrats.getDemandes()!=null ?
-						contrats.getDemandes().stream()	
-						.map(demandesDto::fromEntity)
-						.collect(Collectors.toList()) : null
-						)
+				//		)
+		//		.demandes(
+			//			contrats.getDemandes()!=null ?
+			//			contrats.getDemandes().stream()	
+			//			.map(demandesDto::fromEntity)
+			//			.collect(Collectors.toList()) : null
+			//			)
 				.build();
+		
 	}
 	
 	
@@ -81,7 +84,8 @@ public class contratsDto {
 		contrats.setDateFin(contratsDto.getDateFin());
 		contrats.setSalaire(contratsDto.getSalaire());
 		contrats.setSignature(contratsDto.getSignature());
-		contrats.setTypeContrats(contratsDto.getTypeContrats());
+
+		//contrats.setTypeContrats(contratsDto.getTypeContrats());
 		
 		
 		

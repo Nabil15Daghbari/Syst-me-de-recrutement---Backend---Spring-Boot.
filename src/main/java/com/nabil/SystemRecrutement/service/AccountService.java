@@ -2,19 +2,25 @@ package com.nabil.SystemRecrutement.service;
 
 import java.util.List;
 
+import com.nabil.SystemRecrutement.dto.appUserDto;
 import com.nabil.SystemRecrutement.model.AppRole;
 import com.nabil.SystemRecrutement.model.AppUser;
 
 public interface AccountService {
 	
-	AppUser addNewUser(AppUser appUser);
+	appUserDto addNewUser(appUserDto appUserdto);
 	
 	AppRole addNewRole(AppRole appRole);
 	
-	void addRoleToUser(String username ,String roleName);
+	void addRoleToUser(String email ,String roleName);
 	
-	AppUser loadUserByUsername(String username) ;
+	AppUser loadUserByUsername(String email) ;
 	
 	List<AppUser> listUsers();
+	
+    appUserDto findById(Long id);
+		
+	void delete(Long id);
+
 
 }

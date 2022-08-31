@@ -42,8 +42,7 @@ par exemple je recherchais un article par son code et je ne trouve pas cet artic
 		}
 	
 	
-	
-	
+
 	
 	
 	

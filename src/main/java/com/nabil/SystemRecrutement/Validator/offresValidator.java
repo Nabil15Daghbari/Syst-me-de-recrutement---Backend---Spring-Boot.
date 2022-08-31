@@ -12,10 +12,7 @@ public class offresValidator {
 		List<String> errors= new ArrayList<>() ;
 		
 		if(offresDto ==null) {
-			errors.add("Veuillez renseigner le titre");
-			errors.add("Veuillez renseigner le description");
-			errors.add("Veuillez renseigner la date du Creation");
-			errors.add("Veuillez renseigner la date Cloture");
+			
 			errors.add("Veuillez renseigner les connaissances");
 			errors.add("Veuillez renseigner l'experience");
 			
@@ -23,18 +20,7 @@ public class offresValidator {
 		}
 		
 		
-		if(!StringUtils.hasLength(offresDto.getTitre())) {
-			errors.add("Veuillez renseigner le titre");
-		}
-		if(!StringUtils.hasLength(offresDto.getDescription())) {
-			errors.add("Veuillez renseigner le description");
-		}
-		if(offresDto.getDateCreation()==null) {
-			errors.add("Veuillez renseigner la date du Creation");
-		}
-		if(offresDto.getDateCloture()==null) {
-			errors.add("Veuillez renseigner la date Cloture");
-		}
+	
 		if(!StringUtils.hasLength(offresDto.getConnaissances())) {
 			errors.add("Veuillez renseigner les connaissances");
 		}

@@ -40,12 +40,12 @@ public class utilisateurDto {
 				.dateDeNaissance(u.getDateDeNaissance())
 				.motDePasse(u.getMotDePasse())
 				
-				.roles    (
-						    u.getRoles() !=null ?
-							u.getRoles().stream()
-							.map(RolesDto :: fromEntity)
-							.collect(Collectors.toList()) : null
-						  )
+			//	.roles    (
+				//		    u.getRoles() !=null ?
+				//			u.getRoles().stream()
+				//			.map(RolesDto :: fromEntity)
+				//			.collect(Collectors.toList()) : null
+				//		  )
 				.build();
 				
 				

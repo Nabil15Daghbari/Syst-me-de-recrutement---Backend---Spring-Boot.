@@ -10,7 +10,7 @@ import lombok.Data;
 @Builder
 public class CandidatDto {
 
-	private String code ;
+	private String cin ;
 	
 	private Long id ;
 	
@@ -31,10 +31,16 @@ public class CandidatDto {
 	private String password ;
 
 	private String tele ;
+    private String cv ;
+    private String lettreMotivation ;
+    private String  Diplome ;
+    
+    private List<demandesDto> demandes ;
+    
+	private List<AffectationDto> affectation ;
 
-	private contratsDto CONTRATS ;
-	
-	private List<demandesDto> demandes ;
+
+
 	
 	
 	public static CandidatDto fromEntity(Candidat candidat) {
@@ -45,7 +51,7 @@ public class CandidatDto {
 		
 		
 		return CandidatDto.builder()
-				.code(candidat.getCode())
+				.cin(candidat.getCin())
 				.id(candidat.getId())
 				.nom(candidat.getNom())
 				.prenom(candidat.getPrenom())
@@ -56,15 +62,12 @@ public class CandidatDto {
 				.Login(candidat.getLogin())
 				.password(candidat.getPassword())
 				.tele(candidat.getTele())
-				.CONTRATS(contratsDto.fromEntity(candidat.getCONTRATS()))
-				.demandes
-				     (
-						candidat.getDemandes() !=null ?
-						candidat.getDemandes().stream()
-					    .map(demandesDto :: fromEntity)
-						.collect(Collectors.toList()) : null
-						
-						)
+				.cv(candidat.getCv())
+				.lettreMotivation(candidat.getLettreMotivation())
+				.Diplome(candidat.getDiplome())
+				
+				
+	
 				.build();
 				
 
@@ -79,7 +82,7 @@ public class CandidatDto {
 		}
 		
 		Candidat candidat = new Candidat();
-		candidat.setCode(candidatDto.getCode());
+		candidat.setCin(candidatDto.getCin());
 		candidat.setId(candidatDto.getId());
 		candidat.setNom(candidatDto.getNom());
 		candidat.setPrenom(candidatDto.getPrenom());
@@ -90,7 +93,12 @@ public class CandidatDto {
 		candidat.setLogin(candidatDto.getLogin());
 		candidat.setPassword(candidatDto.getPassword());
 		candidat.setTele(candidatDto.getTele());
-		candidat.setCONTRATS(contratsDto.toEntity(candidatDto.getCONTRATS()));
+		candidat.setCv(candidatDto.getCv());
+		candidat.setLettreMotivation(candidatDto.getLettreMotivation());
+		candidat.setDiplome(candidatDto.getDiplome());
+		
+		
+
 		
 	    
 		

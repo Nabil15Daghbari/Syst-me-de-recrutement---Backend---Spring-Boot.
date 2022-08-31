@@ -4,11 +4,12 @@ import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,7 +18,7 @@ import lombok.NoArgsConstructor;
 
 
 @Data
-@Builder
+
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -43,16 +44,17 @@ public class contrats extends AbstractEntity {
 	private BigDecimal   salaire ;
 	@Column(name="signature")
 	private String   signature ; 
-	@Column(name="typeContrats")
-	private TypeContrats typeContrats ;
+//	@Column(name="typeContrats")
+//	private TypeContrats typeContrats ;
 	
 	
+//	@OneToMany(mappedBy = "CONTRATS")
+//	private List<Candidat> candidat ;
 	
-	@OneToMany(mappedBy = "CONTRATS")
-	private List<Candidat> candidat ;
 	
+//	@OneToMany(mappedBy = "contrats")
+//	private List<demandes> demandes ;
 	
-	@OneToMany(mappedBy = "contrats")
-	private List<demandes> demandes ;
+
 	
 }

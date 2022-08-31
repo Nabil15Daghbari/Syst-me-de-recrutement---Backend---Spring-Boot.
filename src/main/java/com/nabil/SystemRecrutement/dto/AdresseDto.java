@@ -16,7 +16,7 @@ public class AdresseDto {
 	private String adresse1 ;
 	
 	
-	private String adresse2 ;
+//	private String adresse2 ;
 	
 
 	private String ville ;
@@ -35,7 +35,7 @@ public class AdresseDto {
 		
 		return AdresseDto.builder()
 				.adresse1(adresse.getAdresse1())
-				.adresse2(adresse.getAdresse2())
+		//		.adresse2(adresse.getAdresse2())
 				.ville(adresse.getVille())
 				.codePostale(adresse.getCodePostale())
 				.pays(adresse.getPays())
@@ -55,7 +55,7 @@ public class AdresseDto {
 		Adresse ad = new Adresse();
 		
 		ad.setAdresse1(add.getAdresse1());
-		ad.setAdresse2(add.getAdresse2());
+	//	ad.setAdresse2(add.getAdresse2());
 		ad.setCodePostale(add.getCodePostale());
 		ad.setPays(add.getPays());
 		ad.setVille(add.getVille());

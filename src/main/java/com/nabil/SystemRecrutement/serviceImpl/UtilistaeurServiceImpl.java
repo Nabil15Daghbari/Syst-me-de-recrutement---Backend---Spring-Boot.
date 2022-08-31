@@ -39,12 +39,12 @@ public class UtilistaeurServiceImpl  implements UtilisateurService {
 	@Override
 	public utilisateurDto save(utilisateurDto dto) {
 		
-		List<String> errors = UtilisateurValidator.Validate(dto);
+	//	List<String> errors = UtilisateurValidator.Validate(dto);
 		
-		if(!errors.isEmpty()) {
-			log.error("L'utilisateur is not Valid {}" , dto);
-			throw new InvalidEntityExeption("L'utilisateur n'est pas valide " , ErrorCodes.UTILISATEUR_NOT_VALID , errors );
-		}
+	//	if(!errors.isEmpty()) {
+	//		log.error("L'utilisateur is not Valid {}" , dto);
+	//		throw new InvalidEntityExeption("L'utilisateur n'est pas valide " , ErrorCodes.UTILISATEUR_NOT_VALID , errors );
+	//	}
 		
 		return utilisateurDto.fromEntity(utilistaeurRepository.save(utilisateurDto.toEntity(dto)));
 	}

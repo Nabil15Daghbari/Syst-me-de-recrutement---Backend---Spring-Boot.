@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 
 
 @Data
-@Builder
+
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -34,14 +34,15 @@ public class entretien extends AbstractEntity {
 	@Column(name="email")
 	private String   email ; 
 	
-
-	@ManyToOne
-	@JoinColumn(name="idcandidat")
-	private Candidat candidat ;
+//	@ManyToOne
+//	@JoinColumn(name="idcandidat")
+//	private Candidat candidat ;
 	
-	@ManyToOne
-	@JoinColumn(name="idrecruteur")
-	private recruteur  recruteur ;
+//	@ManyToOne
+//	@JoinColumn(name="idrecruteur")
+//	private recruteur  recruteur ;
+	
+
 	
 
 }

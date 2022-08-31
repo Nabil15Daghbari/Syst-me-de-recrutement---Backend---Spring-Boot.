@@ -1,17 +1,19 @@
 package com.nabil.SystemRecrutement.model;
 
-import java.util.Collection;
 
 import javax.persistence.Entity;
-
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
+
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
+@Entity
 public class AppRole extends AbstractEntity {
 
 	

@@ -5,7 +5,6 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
-// inscription d'un condidat 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
@@ -22,7 +21,7 @@ import lombok.NoArgsConstructor;
 
 
 @Data
-@Builder
+
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -31,8 +30,8 @@ import lombok.NoArgsConstructor;
 
 public class Candidat extends AbstractEntity{
 	
-	@Column(name="code")
-	private String code ;
+	@Column(name="cin")
+	private String cin ;
 	@Column(name="nom")
 	private String nom ; 
 	@Column(name="prenom")
@@ -51,23 +50,18 @@ public class Candidat extends AbstractEntity{
 	private String password ;
 	@Column(name="tele")
 	private String tele ;
+    private String cv ;
+    private String lettreMotivation ;
+    private String  Diplome ;
+		
 	
-	
-	@ManyToMany(cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "candidat")
 	private List<demandes> demandes ;
 	
 	
-	@ManyToOne
-	@JoinColumn(name="idCONTRATS")
-	private contrats CONTRATS ;
-	
-	
-	@ManyToMany(mappedBy = "candidat")
-	private List<Offres> offres ;
-	
-	
 	@OneToMany(mappedBy = "candidat")
-	private List<entretien> entretien ;
+	private List<Affectation> affectation ;
+	
 	
 	
 	

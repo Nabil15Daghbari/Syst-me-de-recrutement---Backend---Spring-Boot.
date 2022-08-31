@@ -1,6 +1,7 @@
 package com.nabil.SystemRecrutement.model;
 
 import java.time.Instant;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -9,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -22,7 +24,6 @@ import lombok.NoArgsConstructor;
 
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -30,27 +31,34 @@ import lombok.NoArgsConstructor;
 @Table(name="OFFRES")
 public class Offres extends AbstractEntity {
 	
-	@Column(name="code")
-	private String code ;
-	@Column(name="titre")
-	private String  titre ;
-	@Column(name="description")
-	private String  description ;
-	@Column(name="dateCreation")
-	private Instant dateCreation ;
-	@Column(name="dateCloture")
-	private Instant dateCloture ;
-	@Column(name="connaissances")
-	private String  connaissances  ;
-	@Column(name="experience")
-	private String  experience ;
+	private String poste ; 
+	private String  mission ;
+	private String connaissances ;
+	private String niveauEtudes ;
+	private String formation ;
+	private String experience ;
+	private String criteres;
+	private String domaine ;
+	private String langues ;
+	private int nbrARecruter ;
+	private String cantrat ;
+	private String ville ;
+	private Date dateExpiration;
+	private Date dateOrale ;
+	private Date dateConcours ;
+	private int salaire ;
+	
+	
+	@OneToMany(mappedBy = "offre")
+	private List<demandes> demandes ;
+	
+	@ManyToOne
+	private recruteur recruteur  ;
 	
 	
 	@ManyToOne
-	@JoinColumn(name="idrecruteur")
-	private recruteur recruteur ;
+	private Admin admin ; 
 	
-	@ManyToMany(cascade = CascadeType.ALL)
-	private List<Candidat> candidat ;
+	
 
 }

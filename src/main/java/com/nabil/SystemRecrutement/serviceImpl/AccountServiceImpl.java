@@ -1,6 +1,7 @@
 package com.nabil.SystemRecrutement.serviceImpl;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -9,13 +10,23 @@ import org.springframework.stereotype.Service;
 
 import com.nabil.SystemRecrutement.Repository.AppRoleRepository;
 import com.nabil.SystemRecrutement.Repository.AppUserRepository;
+import com.nabil.SystemRecrutement.Validator.UtilisateurValidator;
+import com.nabil.SystemRecrutement.dto.appUserDto;
+import com.nabil.SystemRecrutement.dto.utilisateurDto;
+import com.nabil.SystemRecrutement.exception.EntityNotFoundException;
+import com.nabil.SystemRecrutement.exception.ErrorCodes;
+import com.nabil.SystemRecrutement.exception.InvalidEntityExeption;
 import com.nabil.SystemRecrutement.model.AppRole;
 import com.nabil.SystemRecrutement.model.AppUser;
+import com.nabil.SystemRecrutement.model.Utilisateur;
 import com.nabil.SystemRecrutement.service.AccountService;
+
+import lombok.extern.slf4j.Slf4j;
 
 
 @Service
 @Transactional
+@Slf4j
 public class AccountServiceImpl implements AccountService {
 
 	
@@ -37,12 +48,20 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	@Override
-	public AppUser addNewUser(AppUser appUser) {
+	public appUserDto addNewUser(appUserDto appUserdto) {
 		
-		String pw = appUser.getPassword();
-		appUser.setPassword(passwordEncoder.encode(pw));
+   List<String> errors = UtilisateurValidator.Validate(appUserdto);
 		
-		return appUserRepository.save(appUser);
+		if(!errors.isEmpty()) {
+			log.error("L'utilisateur is not Valid {}" , appUserdto);
+			throw new InvalidEntityExeption("L'utilisateur n'est pas valide " , ErrorCodes.UTILISATEUR_NOT_VALID , errors );
+		}
+		
+		
+		String pw = appUserdto.getPassword();
+		appUserdto.setPassword(passwordEncoder.encode(pw));
+		
+		return appUserDto.fromEntity(appUserRepository.save(appUserDto.toEntity(appUserdto)));
 	}
 
 	@Override
@@ -67,6 +86,40 @@ public class AccountServiceImpl implements AccountService {
 	@Override
 	public List<AppUser> listUsers() {
 		return appUserRepository.findAll();
+	}
+	
+	
+
+	@Override
+	public appUserDto findById(Long id) {
+		
+		if(id==null) {
+			log.error("Utilisateur ID is null");
+			
+		
+			return null ;
+		}
+		
+		Optional<AppUser> utilisateur = appUserRepository.findById(id);		
+
+		
+		return Optional.of(appUserDto.fromEntity(utilisateur.get())).orElseThrow( () ->  
+		new EntityNotFoundException(
+				"Aucun utilistaeur avec l'ID =" + id + "n'ete trouve dans la BDD" , ErrorCodes.UTILISATEUR_NOT_FOUND    ));
+		
+	}
+
+	@Override
+	public void delete(Long id) {
+		
+		if(id==null) {
+			log.error("utilistaeur ID is null");
+			return  ;
+		}
+		
+		appUserRepository.deleteById(id);
+		
+		
 	}
 
 }
