@@ -1,6 +1,9 @@
 package com.nabil.SystemRecrutement.serviceImpl;
 
 import java.io.InputStream;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import com.flickr4java.flickr.Flickr;
 import com.flickr4java.flickr.FlickrException;
@@ -11,16 +14,19 @@ import com.flickr4java.flickr.auth.Permission;
 import com.flickr4java.flickr.uploader.UploadMetaData;
 import com.nabil.SystemRecrutement.service.flickrService;
 
+import lombok.extern.slf4j.Slf4j;
+
 
 
 @Service
-
+@Slf4j
 public class flickerServiceImpl  implements flickrService {
 	    
-	    
-	    Flickr flickr ;
 	
 	    
+	    private Flickr flickr ;
+	
+	    @Autowired
 	    public flickerServiceImpl(Flickr flickr) {
 			this.flickr = flickr ;
 
@@ -38,12 +44,12 @@ public class flickerServiceImpl  implements flickrService {
 		UploadMetaData uploadMetaData = new UploadMetaData();
 		uploadMetaData.setTitle(title);
 		
-		String PhotoId = flickr.getUploader().upload(photo, uploadMetaData);
+		String photoId = flickr.getUploader().upload(photo, uploadMetaData);
 		
 		
 		
 		
-		return flickr.getPhotosInterface().getPhoto(PhotoId).getMedium640Url();
+		return flickr.getPhotosInterface().getPhoto(photoId).getMedium640Url();
 		
 	}
 

@@ -6,7 +6,6 @@ import com.flickr4java.flickr.FlickrException;
 
 public interface flickrService {
 	
-	// methode 
 	String savePhoto(InputStream photo , String title) throws FlickrException;
 
 }

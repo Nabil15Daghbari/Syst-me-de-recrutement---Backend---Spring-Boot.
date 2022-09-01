@@ -24,7 +24,6 @@ import com.github.scribejava.core.oauth.OAuth10aService;
 @Configuration
 public class FlickrConfiguration {
 	
-	// avec l'annotation @Value spring va injecter la valeur de apiKey qui se trouve dans  application.propertie
     @Value("${flickr.apiKey}")
 	private String apiKey ;
     
@@ -33,14 +32,16 @@ public class FlickrConfiguration {
     
     
     @Value("${flickr.appKey}")
-	private String appKey ;
+    private String appKey ;
     
     @Value("${flickr.appSecret}")
     private String appSecret ;
   
     
+    /*
+    
     //  creation d'une methode de type de return flickr qui s'appelle fetFlickr 
-    @Bean //  on ajouter l'annotation be	n : lors de demarrage du l'application spring doit exécuté cette methode  
+   @Bean //  on ajouter l'annotation be	n : lors de demarrage du l'application spring doit exécuté cette methode  
    public Flickr getFlickr() throws InterruptedException , ExecutionException , IOException , FlickrException {
 	   
 	   
@@ -74,12 +75,12 @@ public class FlickrConfiguration {
 	System.out.println(accesToken.getToken());
 	System.out.println(accesToken.getTokenSecret());
 	
-	 Auth auth = flickr.getAuthInterface().checkToken(accesToken);
+	// Auth auth = flickr.getAuthInterface().checkToken(accesToken);
 	
 	
-	System.out.println("-----------------------------");
- 	System.out.println(auth.getToken());
-	System.out.println(auth.getTokenSecret());
+//	System.out.println("-----------------------------");
+ //	System.out.println(auth.getToken());
+//	System.out.println(auth.getTokenSecret());
    	
    			 
    	return flickr ;
@@ -87,11 +88,13 @@ public class FlickrConfiguration {
    
   }
   
-  /*
+  */
+  
+  
     @Bean
     public Flickr getFlickr() {
     	
-        Flickr  flickr =new Flickr(appKey , apiSecret , new REST());
+        Flickr  flickr =new Flickr(apiKey , apiSecret , new REST());
 		
 		Auth auth = new Auth();
 		
@@ -109,7 +112,7 @@ public class FlickrConfiguration {
     	return flickr ;
     }
     
-    */
+    
 }
     
     
