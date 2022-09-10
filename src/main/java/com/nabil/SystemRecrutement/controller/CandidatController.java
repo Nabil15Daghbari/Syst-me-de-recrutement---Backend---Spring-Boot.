@@ -2,7 +2,6 @@ package com.nabil.SystemRecrutement.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nabil.SystemRecrutement.controller.api.CandidatApi;
@@ -16,7 +15,6 @@ public class CandidatController implements CandidatApi {
 	private CandidatService candidatService ;
 	
 	// Constructor Injection
-		@Autowired
 		public CandidatController(CandidatService candidatService) {
 			this.candidatService = candidatService ;
 		}

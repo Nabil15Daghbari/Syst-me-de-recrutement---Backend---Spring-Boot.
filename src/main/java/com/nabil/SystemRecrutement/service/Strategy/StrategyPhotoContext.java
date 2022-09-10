@@ -58,9 +58,11 @@ public class StrategyPhotoContext {
 
 			break ;
 			
-			default : throw new InvalidOperationException("Contexte inconnue pour l'enregistrement du la photo", ErrorCodes.UNKNOWN_CONTEXT);
+		  default : throw new InvalidOperationException("Contexte inconnue pour l'enregistrement du la photo", ErrorCodes.UNKNOWN_CONTEXT);
+
 			
 		}
+
 	}
 
 

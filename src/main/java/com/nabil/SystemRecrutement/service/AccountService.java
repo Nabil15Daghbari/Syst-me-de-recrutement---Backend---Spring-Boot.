@@ -2,6 +2,7 @@ package com.nabil.SystemRecrutement.service;
 
 import java.util.List;
 
+import com.nabil.SystemRecrutement.dto.ChangerMotDePasseUtilisateurDto;
 import com.nabil.SystemRecrutement.dto.appUserDto;
 import com.nabil.SystemRecrutement.model.AppRole;
 import com.nabil.SystemRecrutement.model.AppUser;
@@ -22,5 +23,7 @@ public interface AccountService {
 		
 	void delete(Long id);
 
+	
+	appUserDto changerMotDePasse(ChangerMotDePasseUtilisateurDto dto );
 
 }

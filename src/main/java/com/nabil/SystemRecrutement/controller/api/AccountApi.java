@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nabil.SystemRecrutement.dto.CandidatDto;
+import com.nabil.SystemRecrutement.dto.ChangerMotDePasseUtilisateurDto;
 import com.nabil.SystemRecrutement.dto.appUserDto;
 import com.nabil.SystemRecrutement.dto.utilisateurDto;
 import com.nabil.SystemRecrutement.dto.auth.RoleUserFrom;
@@ -31,6 +32,10 @@ public interface AccountApi {
 	@PostMapping(path=APP_ROOT + "/createUser")
 	appUserDto saveUser(@RequestBody appUserDto appUser );
 	
+	 @PostMapping(path=APP_ROOT + "/chagerPassword")
+	 appUserDto changerMotDePasse(@RequestBody ChangerMotDePasseUtilisateurDto dto );
+	
+	
 	
 	@GetMapping(path=APP_ROOT +"/users")
 	List<AppUser> appUsers();
@@ -38,8 +43,8 @@ public interface AccountApi {
 	@PostMapping(path=APP_ROOT + "/createRole")
 	AppRole saveRole(@RequestBody AppRole appRole);
 	
-	@PostMapping(path=APP_ROOT + "/addRoleToUser")
-	void addRoleToUser(@RequestBody RoleUserFrom RoleUserFrom);
+//	@PostMapping(path=APP_ROOT + "/addRoleToUser")
+//	void addRoleToUser(@RequestBody RoleUserFrom RoleUserFrom);
 	
 	
 	@GetMapping(value=APP_ROOT + "/user/{idUtilisateur}" ,  produces = MediaType.APPLICATION_JSON_VALUE)

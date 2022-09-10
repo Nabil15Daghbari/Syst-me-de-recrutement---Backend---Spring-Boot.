@@ -38,7 +38,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	
 	@Override 
 	protected void  configure(AuthenticationManagerBuilder auth) throws Exception{
-		
 	auth.userDetailsService(new UserDetailsService() {
 		
 		@Override
@@ -72,18 +71,23 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 				"/swagger-ui/index.html",
 				"/webjars/**",
 				"/v3/api-docs/**",
-				"/swagger-ui/**"
+				"/v2/api-docs/**",
+				"/swagger-ui/**" ,
+				"/systemrecrutement/v1/refreshToken/**",
+				"/systemrecrutement/v1/authenticate/**"
+				
 				
 				).permitAll();
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		http.headers().frameOptions().disable() ;
 		//http.formLogin();
-	//	http.authorizeRequests().anyRequest().authenticated();
+		http.authorizeRequests().anyRequest().authenticated();
 		http.addFilter(new JwtAuthenticationFilters(authenticationManagerBean()) );
 		http.addFilterBefore(new JwtAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
 	}
+	//// JwtAuthorizationFilter --> applicationRequestFilter
 	
-	
+	    
 	    @Bean
 		@Override
 		public AuthenticationManager authenticationManagerBean() throws Exception {

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nabil.SystemRecrutement.controller.api.AccountApi;
+import com.nabil.SystemRecrutement.dto.ChangerMotDePasseUtilisateurDto;
 import com.nabil.SystemRecrutement.dto.appUserDto;
 import com.nabil.SystemRecrutement.dto.auth.RoleUserFrom;
 import com.nabil.SystemRecrutement.model.AppRole;
@@ -38,13 +39,13 @@ public class AccountRestController implements AccountApi {
 	}
 
 
-	@Override
-	public void addRoleToUser(RoleUserFrom RoleUserFrom) {
+//	@Override
+//	public void addRoleToUser(RoleUserFrom RoleUserFrom) {
 		
-		accountService.addRoleToUser( RoleUserFrom.getUsername() , RoleUserFrom.getRolename());
+//		accountService.addRoleToUser( RoleUserFrom.getUsername() , RoleUserFrom.getRolename());
 
 		
-	}
+//	}
 
 
 	@Override
@@ -65,6 +66,12 @@ public class AccountRestController implements AccountApi {
 	@Override
 	public appUserDto saveUser(appUserDto appUser) {
 		return accountService.addNewUser(appUser);
+	}
+
+
+	@Override
+	public appUserDto changerMotDePasse(ChangerMotDePasseUtilisateurDto dto) {
+		return accountService.changerMotDePasse(dto);
 	}
 
 }
