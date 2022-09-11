@@ -14,23 +14,37 @@ import com.flickr4java.flickr.auth.Permission;
 import com.flickr4java.flickr.uploader.UploadMetaData;
 import com.nabil.SystemRecrutement.service.flickrService;
 
-import lombok.extern.slf4j.Slf4j;
-
 
 
 @Service
-@Slf4j
 public class flickerServiceImpl  implements flickrService {
 	    
 	
-	    
-	    private Flickr flickr ;
 	
-	    @Autowired
-	    public flickerServiceImpl(Flickr flickr) {
-			this.flickr = flickr ;
-
-		}
+	
+	
+	    @Value("${flickr.apiKey}")
+		private String apiKey ;
+	    
+	    @Value("${flickr.apiSecret}")
+	    private String apiSecret ;
+	    
+	    
+	    @Value("${flickr.appKey}")
+	    private String appKey ;
+	    
+	    @Value("${flickr.appSecret}")
+	    private String appSecret ;
+	    
+	  //  private Flickr flickr ;
+	    
+	
+	
+	//    @Autowired
+	//    public flickerServiceImpl(Flickr flickr  ) {
+	//		this.flickr = flickr ;
+	//		
+	//	}
 
 	    
 	    
@@ -40,6 +54,22 @@ public class flickerServiceImpl  implements flickrService {
 	
 	@Override
 	public String savePhoto(InputStream photo, String title)  throws FlickrException{
+		
+		 Flickr flickr = new Flickr(apiKey, apiSecret, new REST());
+		    Auth auth = new Auth();
+		    auth.setPermission(Permission.DELETE);
+		    auth.setToken(appKey);
+		    auth.setTokenSecret(appSecret);
+		  
+		    
+		    RequestContext requestContext = RequestContext.getRequestContext();
+		    requestContext.setAuth(auth);
+		    flickr.setAuth(auth);
+
+		
+		
+		
+		
 		
 		UploadMetaData uploadMetaData = new UploadMetaData();
 		uploadMetaData.setTitle(title);

@@ -45,13 +45,15 @@ public class saveRecruteurPhoto implements Strategy<recruteurDto> {
 	@Override
 	public recruteurDto savePhoto(Long id  ,InputStream photo, String titre) throws FlickrException {
 		recruteurDto recruteur=recruteurService.findById(id);
-		 String urlPhoto =flickrService.savePhoto(photo, titre);
-		
-		  if(StringUtils.hasLength(urlPhoto)) {
+		 String urlPhoto =flickrService.savePhoto(photo, titre); 
+		 
+		  
+		 if(!StringUtils.hasLength(urlPhoto)) {
 	        	throw new InvalidOperationException("Erreur lors de l'enregistrement de photo de recruteur", ErrorCodes.UPDATE_PHOTO_EXCEPTION);
 	        }
-	        
-		  recruteur.setPhoto(urlPhoto);
+		 
+		 recruteur.setPhoto(urlPhoto);
+		  
 		return recruteurService.save(recruteur);
 	}
 

@@ -42,7 +42,7 @@ public class saveCandidatPhoto implements Strategy<CandidatDto>{
 	public CandidatDto savePhoto(Long id , InputStream photo, String titre) throws FlickrException {
         CandidatDto candidat = candidatService.findById(id);
         String urlPhoto =flickrService.savePhoto(photo, titre);
-        if(StringUtils.hasLength(urlPhoto)) {
+        if(!StringUtils.hasLength(urlPhoto)) {
         	throw new InvalidOperationException("Erreur lors de l'enregistrement de photo de candidat", ErrorCodes.UPDATE_PHOTO_EXCEPTION);
         }
         

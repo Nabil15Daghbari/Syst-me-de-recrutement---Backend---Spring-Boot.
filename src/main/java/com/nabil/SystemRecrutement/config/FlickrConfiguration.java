@@ -38,8 +38,8 @@ public class FlickrConfiguration {
     private String appSecret ;
   
     
-    
     /*
+    
     //  creation d'une methode de type de return flickr qui s'appelle fetFlickr 
    @Bean //  on ajouter l'annotation be	n : lors de demarrage du l'application spring doit exécuté cette methode  
    public Flickr getFlickr() throws InterruptedException , ExecutionException , IOException , FlickrException {
