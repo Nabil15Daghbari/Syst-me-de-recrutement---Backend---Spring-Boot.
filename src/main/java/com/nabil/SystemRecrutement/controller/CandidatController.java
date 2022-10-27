@@ -2,6 +2,7 @@ package com.nabil.SystemRecrutement.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nabil.SystemRecrutement.controller.api.CandidatApi;
@@ -9,6 +10,7 @@ import com.nabil.SystemRecrutement.dto.CandidatDto;
 import com.nabil.SystemRecrutement.service.CandidatService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class CandidatController implements CandidatApi {
 	
 	// Field Injection
@@ -43,6 +45,9 @@ public class CandidatController implements CandidatApi {
 			
 			candidatService.delete(id);
 		}
+
+
+		
 
 		
 	}

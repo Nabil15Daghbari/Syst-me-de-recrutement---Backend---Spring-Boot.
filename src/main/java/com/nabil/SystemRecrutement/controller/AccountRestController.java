@@ -2,6 +2,7 @@ package com.nabil.SystemRecrutement.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nabil.SystemRecrutement.controller.api.AccountApi;
@@ -13,6 +14,8 @@ import com.nabil.SystemRecrutement.model.AppUser;
 import com.nabil.SystemRecrutement.service.AccountService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
+
 public class AccountRestController implements AccountApi {
 	
 	

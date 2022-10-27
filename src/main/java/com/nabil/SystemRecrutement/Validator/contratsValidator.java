@@ -18,10 +18,8 @@ public class contratsValidator {
 		
 		
 		if(contratsDto ==null) {
-			errors.add("Veuillez renseigner le nom du candidat");
-			errors.add("Veuillez renseigner le prenom du candidat");
+			
 			errors.add("Veuillez renseigner la date Debut");
-			errors.add("Veuillez renseigner la date Fin");
 			errors.add("Veuillez renseigner le salaire ");
 			errors.add("Veuillez renseigner le signature du contrat");
 			
@@ -29,13 +27,8 @@ public class contratsValidator {
 		}
 		
 		
-		if(!StringUtils.hasLength(contratsDto.getNomCandidat())) {
-			errors.add("Veuillez renseigner le nom du candidat");
-		} 
 		
-		if(!StringUtils.hasLength(contratsDto.getPrenomCandidat())) {
-			errors.add("Veuillez renseigner le prenom du candidat");
-		} 
+		
 		
 		
         if(contratsDto.getDateDebut()==null) {
@@ -44,11 +37,7 @@ public class contratsValidator {
 		}
 		
 
-        if(contratsDto.getDateFin()==null) {
-			
-			errors.add("Veuillez renseigner la date du fin");	
-		}
-		
+       
 		
          if(contratsDto.getSalaire()==null) {
 			

@@ -27,7 +27,7 @@ public class RecruteurServiceImpl implements RecruteurService {
 	@Autowired
 	public RecruteurServiceImpl (recruteurRepository recruteurRepository ) {
 		this.recruteurRepository= recruteurRepository ; 
-	}
+	}   
 	
 	
 	

@@ -22,8 +22,6 @@ public class candidatValidator {
 		errors.add("Veuillez renseigner l'adresse");
 		errors.add("Veuillez renseigner le numéro de telephone du candidat");
 		errors.add("Veuillez renseigner l'email du candidat");
-		errors.add("Veuillez renseigner Login du candidat");
-		errors.add("Veuillez renseigner password du candidat");
 		
 		return errors ;
 	}
@@ -45,13 +43,7 @@ public class candidatValidator {
 		errors.add("Veuillez renseigner l'email du candidat");
 	}
 	
-	if(!StringUtils.hasLength(candidatDto.getLogin())) {
-		errors.add("Veuillez renseigner Login du candidat");
-	}
 	
-	if(!StringUtils.hasLength(candidatDto.getPassword())) {
-		errors.add("Veuillez renseigner password du candidat");
-	}
 	
 	
 	if(candidatDto.getAdresse() == null) {

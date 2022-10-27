@@ -2,12 +2,15 @@ package com.nabil.SystemRecrutement.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 import com.nabil.SystemRecrutement.controller.api.ContratsApi;
 import com.nabil.SystemRecrutement.dto.contratsDto;
 import com.nabil.SystemRecrutement.service.ContratsService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
+
 public class ContratsController implements ContratsApi {
 	
 	private ContratsService contratsService ;

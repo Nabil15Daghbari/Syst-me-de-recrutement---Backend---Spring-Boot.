@@ -5,6 +5,7 @@ package com.nabil.SystemRecrutement.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nabil.SystemRecrutement.controller.api.servApi;
@@ -12,6 +13,7 @@ import com.nabil.SystemRecrutement.dto.ServicesDto;
 import com.nabil.SystemRecrutement.service.servService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class servController implements servApi {
 
 	

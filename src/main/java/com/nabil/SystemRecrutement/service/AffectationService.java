@@ -7,5 +7,7 @@ import com.nabil.SystemRecrutement.dto.AffectationDto;
 public interface AffectationService {
 	
 	List<AffectationDto> findAll();
+	
+    List<AffectationDto> findAffectationByIdCandidat(Long idCandidat);
 
 }

@@ -14,4 +14,8 @@ public interface OffresService {
 	 List<offresDto> findAll();
 		
 	 void delete(Long id);
+	 
+	 
+	 
+	 offresDto  findOffresByCodeOffre(String codeOffre);
 }

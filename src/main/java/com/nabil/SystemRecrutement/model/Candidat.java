@@ -53,6 +53,7 @@ public class Candidat extends AbstractEntity{
     private String cv ;
     private String lettreMotivation ;
     private String  Diplome ;
+    private int note ;
 		
 	
 	@OneToMany(mappedBy = "candidat")
@@ -61,6 +62,7 @@ public class Candidat extends AbstractEntity{
 	
 	@OneToMany(mappedBy = "candidat")
 	private List<Affectation> affectation ;
+	
 	
 	
 	

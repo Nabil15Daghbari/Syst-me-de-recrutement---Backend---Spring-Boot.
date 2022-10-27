@@ -3,7 +3,6 @@ package com.nabil.SystemRecrutement.serviceImpl;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.nabil.SystemRecrutement.Repository.candidatRepository;
@@ -20,13 +19,16 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class CandidatServiceImpl implements CandidatService {
 
-	private candidatRepository candidatRepository ;
+	 private candidatRepository candidatRepository ;
+	
+
 	
 	
 	@Autowired
-	public CandidatServiceImpl (candidatRepository candidatRepository ) {
+	public CandidatServiceImpl (candidatRepository candidatRepository    ) {
 		
 		this.candidatRepository= candidatRepository ;
+		  
 		
 	}
 	
@@ -36,10 +38,10 @@ public class CandidatServiceImpl implements CandidatService {
 		List<String> errors = candidatValidator.validate(dto);
 		
 		
-		if(!errors.isEmpty()) {
-			log.error("Le candidat is not Valid {}" , dto);
-			throw new InvalidEntityExeption("Le candidat n'est pas valide " , ErrorCodes.CANDIDAT_NOT_VALID , errors );
-		}
+		//if(!errors.isEmpty()) {
+		//	log.error("Le candidat is not Valid {}" , dto);
+		//	throw new InvalidEntityExeption("Le candidat n'est pas valide " , ErrorCodes.CANDIDAT_NOT_VALID , errors );
+	//	}
 		
 		return CandidatDto.fromEntity(candidatRepository.save(CandidatDto.toEntity(dto)));
 	}
@@ -102,4 +104,6 @@ public class CandidatServiceImpl implements CandidatService {
 		
 	}
 
+	
+	
 }

@@ -6,9 +6,8 @@ import java.util.List;
 
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
-
+import org.springframework.web.bind.annotation.PathVariable;
 import com.nabil.SystemRecrutement.dto.AffectationDto;
-
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -25,5 +24,10 @@ public interface AffectationApi  {
 				@ApiResponse(code = 404 , message = "Aucun candidat n'existe dans BDD avec l'ID fourni")
 		})
 	 List<AffectationDto> findAll() ;
+	 
+	 
+	 @GetMapping(value = APP_ROOT + "/affectations/filter/candidat/{idCandidat}", produces = MediaType.APPLICATION_JSON_VALUE)	 
+	 List<AffectationDto> findAffectationByIdCandidat(@PathVariable("idCandidat") Long idCandidat) ;
+	 
 
 }

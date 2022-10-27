@@ -39,29 +39,29 @@ public class Adresse implements Serializable {
 	//	this.adresse2 = adresse2;
 	//}
 
-	public String getVille() {
-		return ville;
-	}
+//	public String getVille() {
+///		return ville;
+//	}
 
-	public void setVille(String ville) {
-		this.ville = ville;
-	}
+//	public void setVille(String ville) {
+//		this.ville = ville;
+//	}
 
-	public String getCodePostale() {
-		return codePostale;
-	}
+//	public String getCodePostale() {
+//		return codePostale;
+//	}
 
-	public void setCodePostale(String codePostale) {
-		this.codePostale = codePostale;
-	}
+//	public void setCodePostale(String codePostale) {
+//		this.codePostale = codePostale;
+//	}
 
-	public String getPays() {
-		return pays;
-	}
+///	public String getPays() {
+//		return pays;
+//	}
 
-	public void setPays(String pays) {
-		this.pays = pays;
-	}
+//	public void setPays(String pays) {
+//		this.pays = pays;
+//	}
 
 	/**
 	 * 
@@ -74,14 +74,14 @@ public class Adresse implements Serializable {
 	//@Column(name="adresse2")
 	//private String adresse2 ;
 	
-	@Column(name="ville")
-	private String ville ;
+//	@Column(name="ville")
+//	private String ville ;
 	
-	@Column(name="codepostale")
-	private String codePostale ;
+//	@Column(name="codepostale")
+//	private String codePostale ;
 	
-	@Column(name="pays")
-	private String pays ;
+//	@Column(name="pays")
+//	private String pays ;
 	
 	//@Column(name="idEntreprise")
 	//private Integer idEntreprise ;

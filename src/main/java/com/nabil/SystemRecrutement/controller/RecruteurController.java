@@ -3,6 +3,7 @@ package com.nabil.SystemRecrutement.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nabil.SystemRecrutement.controller.api.RecruteurApi;
@@ -10,6 +11,7 @@ import com.nabil.SystemRecrutement.dto.recruteurDto;
 import com.nabil.SystemRecrutement.service.RecruteurService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class RecruteurController implements RecruteurApi{
 	
 	

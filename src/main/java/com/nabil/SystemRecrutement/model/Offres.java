@@ -2,7 +2,10 @@ package com.nabil.SystemRecrutement.model;
 
 import java.util.Date;
 import java.util.List;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -19,6 +22,9 @@ import lombok.NoArgsConstructor;
 @Table(name="OFFRES")
 public class Offres extends AbstractEntity {
 	
+	
+	
+	private String codeOffre;
 	private String poste ; 
 	private String  mission ;
 	private String connaissances ;
@@ -46,6 +52,7 @@ public class Offres extends AbstractEntity {
 	
 	@ManyToOne
 	private Admin admin ; 
+	
 	
 	
 

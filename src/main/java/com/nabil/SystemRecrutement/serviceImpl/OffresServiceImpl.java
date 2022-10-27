@@ -5,6 +5,8 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+
 import com.nabil.SystemRecrutement.Repository.offresRepository;
 import com.nabil.SystemRecrutement.Validator.offresValidator;
 import com.nabil.SystemRecrutement.dto.offresDto;
@@ -37,10 +39,10 @@ public class OffresServiceImpl implements OffresService{
 	public offresDto save(offresDto dto) {
        List<String> errors =offresValidator.validate(dto);
 		
-		if(!errors.isEmpty()) {
-			log.error("l'offre  in not Valid{}" , dto);
-			throw new InvalidEntityExeption("L'offre n'est pas valide ", ErrorCodes.OFFRE_NOT_VALID, errors );
-		}
+	//	if(!errors.isEmpty()) {
+	//	log.error("l'offre  in not Valid{}" , dto);
+	//		throw new InvalidEntityExeption("L'offre n'est pas valide ", ErrorCodes.OFFRE_NOT_VALID, errors );
+	//	}
 		return offresDto.fromEntity(offresRepository.save(offresDto.toEntity(dto)));
 	}
 
@@ -84,6 +86,25 @@ public class OffresServiceImpl implements OffresService{
 		}
 		
 		offresRepository.deleteById(id);
+	}
+
+
+
+
+	@Override
+	public offresDto findOffresByCodeOffre(String codeOffre) {
+		 if (!StringUtils.hasLength(codeOffre)) {
+		      log.error("Offre CODE is null");
+		      return null;
+		    }
+
+		    return offresRepository.findOffresByCodeOffre(codeOffre)
+		        .map(offresDto::fromEntity)
+		        .orElseThrow(() ->
+		            new EntityNotFoundException(
+		                "Aucun offre avec le CODE = " + codeOffre + " n' ete trouve dans la BDD",
+		                ErrorCodes.OFFRE_NOT_FOUND)
+		        );
 	}
 		
 	

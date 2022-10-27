@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+
 import com.nabil.SystemRecrutement.dto.offresDto;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -54,4 +55,15 @@ public interface OffresApi {
 	 void  delete(@PathVariable("idOffre") Long id) ;
 	
 
+	 
+	 
+	 
+	 @GetMapping(value = APP_ROOT + "/offre/filter/{codeOffre}", produces = MediaType.APPLICATION_JSON_VALUE)
+	  @ApiOperation(value = "Rechercher un offre par CODE", notes = "Cette methode permet de chercher un offre par son CODE", response =
+			  offresDto.class)
+	  @ApiResponses(value = {
+	      @ApiResponse(code = 200, message = "offre a ete trouve dans la BDD"),
+	      @ApiResponse(code = 404, message = "Aucun offre n'existe dans la BDD avec le CODE fourni")
+	  })
+	  offresDto findOffresByCodeOffre(@PathVariable("codeOffre") String codeOffre) ;
 }

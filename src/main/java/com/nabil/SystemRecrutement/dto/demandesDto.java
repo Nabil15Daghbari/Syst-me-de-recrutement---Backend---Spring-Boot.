@@ -35,7 +35,6 @@ public class demandesDto {
 				.id(demande.getId())
 				.dateDemande(demande.getDateDemande())
 				.resultatConcours(demande.getResultatConcours())
-				.StatutCondidature(demande.getStatutCondidature())
 				.candidat(CandidatDto.fromEntity(demande.getCandidat()))
 				.offre(offresDto.fromEntity(demande.getOffre()))
 				.etatDemande(demande.getEtatDemande())
@@ -56,7 +55,6 @@ public class demandesDto {
 		demandes.setId(demandesDto.getId());
 		demandes.setDateDemande(demandesDto.getDateDemande());
 		demandes.setResultatConcours(demandesDto.getResultatConcours());
-		demandes.setStatutCondidature(demandesDto.getStatutCondidature());
 		demandes.setCandidat(CandidatDto.toEntity(demandesDto.getCandidat()));
 		demandes.setOffre(offresDto.toEntity(demandesDto.getOffre()));
 		demandes.setEtatDemande(demandesDto.getEtatDemande());
@@ -67,7 +65,7 @@ public class demandesDto {
 	
 	@SuppressWarnings("static-access")
 	public boolean  isDemandeAccepte() { 
-		return etatDemande.ACCEPTER.equals(this.etatDemande);
+		return etatDemande.ADMIS.equals(this.etatDemande);
 	}
 
 	
