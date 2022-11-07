@@ -10,7 +10,6 @@ import com.nabil.SystemRecrutement.Validator.candidatValidator;
 import com.nabil.SystemRecrutement.dto.CandidatDto;
 import com.nabil.SystemRecrutement.exception.EntityNotFoundException;
 import com.nabil.SystemRecrutement.exception.ErrorCodes;
-import com.nabil.SystemRecrutement.exception.InvalidEntityExeption;
 import com.nabil.SystemRecrutement.model.Candidat;
 import com.nabil.SystemRecrutement.service.CandidatService;
 import lombok.extern.slf4j.Slf4j;
@@ -92,17 +91,15 @@ public class CandidatServiceImpl implements CandidatService {
 		
 		
 		if(id==null) {
-			log.error("Candidat ID is null");
-			
-			return  ;
-			
-			
+			log.error("Candidat ID is null");	
+			return  ;		
 		}
-		
-		 candidatRepository.deleteById(id);
-		
-		
+			 candidatRepository.deleteById(id);		
 	}
+
+
+	
+
 
 	
 	

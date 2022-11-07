@@ -9,6 +9,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -37,9 +42,8 @@ public class Offres extends AbstractEntity {
 	private int nbrARecruter ;
 	private String cantrat ;
 	private String ville ;
+	
 	private Date dateExpiration;
-	private Date dateOrale ;
-	private Date dateConcours ;
 	private int salaire ;
 	
 	

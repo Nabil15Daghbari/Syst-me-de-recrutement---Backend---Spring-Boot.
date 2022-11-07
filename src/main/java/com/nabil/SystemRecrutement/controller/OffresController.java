@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.nabil.SystemRecrutement.controller.api.OffresApi;
 import com.nabil.SystemRecrutement.dto.offresDto;
+import com.nabil.SystemRecrutement.model.Offres;
 import com.nabil.SystemRecrutement.service.OffresService;
 
 
@@ -53,6 +54,12 @@ public class OffresController implements OffresApi{
 	@Override
 	public offresDto findOffresByCodeOffre(String codeOffre) {
 		return offresService.findOffresByCodeOffre(codeOffre);
+	}
+
+
+	@Override
+	public Offres update(Long id, Offres offre) {
+		return offresService.update(id, offre);
 	}
 
 }

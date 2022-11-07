@@ -2,17 +2,12 @@ package com.nabil.SystemRecrutement.model;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -30,6 +25,9 @@ import lombok.NoArgsConstructor;
 
 public class Candidat extends AbstractEntity{
 	
+
+
+
 	@Column(name="cin")
 	private String cin ;
 	@Column(name="nom")
@@ -50,12 +48,13 @@ public class Candidat extends AbstractEntity{
 	private String password ;
 	@Column(name="tele")
 	private String tele ;
-    private String cv ;
-    private String lettreMotivation ;
-    private String  Diplome ;
-    private int note ;
+	
+	
+	
+	
 		
 	
+    
 	@OneToMany(mappedBy = "candidat")
 	private List<demandes> demandes ;
 	

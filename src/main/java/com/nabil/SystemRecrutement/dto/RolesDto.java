@@ -1,7 +1,6 @@
 package com.nabil.SystemRecrutement.dto;
 
-
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.nabil.SystemRecrutement.model.Roles;
 import lombok.Builder;
 import lombok.Data;
@@ -11,41 +10,32 @@ import lombok.Data;
 @Builder
 public class RolesDto {
 	
-	private Long id  ;
-	private String roleName;
-	private utilisateurDto utilisateur ;
-	
-	
-	
-	public static RolesDto fromEntity(Roles r) {
-		if(r == null ) {
-			return null ;
-				
-		}
-		
-		return RolesDto.builder()
-				.id(r.getId())
-				.roleName(r.getRoleName())
-				.utilisateur(utilisateurDto.fromEntity(r.getUtilisateur()))
-				.build();
-		
-		
-	}
-	
-	
-	public static Roles toEntity(RolesDto rd) {
-		if(rd == null) {
-			return null ;
-		}
-		
-		Roles r = new Roles();
-		r.setId(rd.getId());
-		r.setRoleName(rd.getRoleName());
-		r.setUtilisateur(utilisateurDto.toEntity(rd.getUtilisateur()));
-		
-	
-		
-		return r ;
-	}
+	  private Long id;
 
-}
+	  private String roleName;
+
+	  @JsonIgnore
+	  private utilisateurDto utilisateur;
+
+	  public static RolesDto fromEntity(Roles roles) {
+	    if (roles == null) {
+	      return null;
+	    }
+	    return RolesDto.builder()
+	        .id(roles.getId())
+	        .roleName(roles.getRoleName())
+	        .build();
+	  }
+
+	  public static Roles toEntity(RolesDto dto) {
+	    if (dto == null) {
+	      return null;
+	    }
+	    Roles roles = new Roles();
+	    roles.setId(dto.getId());
+	    roles.setRoleName(dto.getRoleName());
+	    roles.setUtilisateur(utilisateurDto.toEntity(dto.getUtilisateur()));
+	    return roles;
+	  }
+
+	}

@@ -14,7 +14,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
-@Api(APP_ROOT + "/contrat")
+@Api( "/contrat")
 public interface ContratsApi {
 	
 	@PostMapping(value = APP_ROOT + "/contrat/create" , consumes = MediaType.APPLICATION_JSON_VALUE , produces = MediaType.APPLICATION_JSON_VALUE)
@@ -39,7 +39,7 @@ public interface ContratsApi {
 	 // http://localhost:8081/systemrecrutement/v1/contrat/All
 	 
 	 @GetMapping(value=APP_ROOT + "/contrat/All" ,  produces = MediaType.APPLICATION_JSON_VALUE)
-	 @ApiOperation(value="rechercher tous les contrats " , notes="Cette methode permet de recupurer tous les contrat " , response = contratsDto.class)
+	 @ApiOperation(value="rechercher tous les contrats " , notes="Cette methode permet de recupurer tous les contrat " , responseContainer = "List<contratsDto>")
 		@ApiResponses(value= {
 				@ApiResponse(code= 200 , message ="les contrats a ete trouvee dans l BD") ,
 				@ApiResponse(code=400 , message="Aucun contrats n'existe dans BDD avec l'ID fourni ")

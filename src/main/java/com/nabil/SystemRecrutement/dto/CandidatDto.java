@@ -2,6 +2,9 @@ package com.nabil.SystemRecrutement.dto;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
+import javax.persistence.Lob;
+
 import com.nabil.SystemRecrutement.model.Candidat;
 import lombok.Builder;
 import lombok.Data;
@@ -31,10 +34,7 @@ public class CandidatDto {
 	private String password ;
 
 	private String tele ;
-    private String cv ;
-    private String lettreMotivation ;
-    private String  Diplome ;
-    
+   
     private List<demandesDto> demandes ;
     
 	private List<AffectationDto> affectation ;
@@ -62,10 +62,20 @@ public class CandidatDto {
 				.Login(candidat.getLogin())
 				.password(candidat.getPassword())
 				.tele(candidat.getTele())
-				.cv(candidat.getCv())
-				.lettreMotivation(candidat.getLettreMotivation())
-				.Diplome(candidat.getDiplome())
+				.demandes(
+						  candidat.getDemandes() != null ? 
+						  candidat.getDemandes().stream()
+					      .map(demandesDto::fromEntity)
+						  .collect(Collectors.toList()) : null	
+						)
+				.affectation(						
+						        candidat.getAffectation() != null ? 
+						        candidat.getAffectation().stream()
+							    .map(AffectationDto::fromEntity)
+		        		        .collect(Collectors.toList()) : null	
+					     	)
 				
+			
 				
 	
 				.build();
@@ -93,9 +103,8 @@ public class CandidatDto {
 		candidat.setLogin(candidatDto.getLogin());
 		candidat.setPassword(candidatDto.getPassword());
 		candidat.setTele(candidatDto.getTele());
-		candidat.setCv(candidatDto.getCv());
-		candidat.setLettreMotivation(candidatDto.getLettreMotivation());
-		candidat.setDiplome(candidatDto.getDiplome());
+		
+	
 		
 		
 
@@ -106,4 +115,13 @@ public class CandidatDto {
 		
 		return candidat ;
 	}
+
+
+	
+
+
+
 }
+
+
+

@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.nabil.SystemRecrutement.controller.api.RecruteurApi;
 import com.nabil.SystemRecrutement.dto.recruteurDto;
+import com.nabil.SystemRecrutement.model.recruteur;
 import com.nabil.SystemRecrutement.service.RecruteurService;
-
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class RecruteurController implements RecruteurApi{
@@ -40,6 +40,11 @@ public class RecruteurController implements RecruteurApi{
 	@Override
 	public void delete(Long id) {
 		recruteurService.delete(id);		
+	}
+
+	@Override
+	public recruteur update(Long id, recruteur recruteur) {
+		return recruteurService.update(id, recruteur);
 	}
 	
 	

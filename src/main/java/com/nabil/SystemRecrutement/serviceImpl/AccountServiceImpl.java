@@ -53,12 +53,12 @@ public class AccountServiceImpl implements AccountService {
 	@Override
 	public appUserDto addNewUser(appUserDto appUserdto) {
 		
-   List<String> errors = UtilisateurValidator.Validate(appUserdto);
+  // List<String> errors = UtilisateurValidator.validate(appUserdto);
 		
-		if(!errors.isEmpty()) {
-			log.error("L'utilisateur is not Valid {}" , appUserdto);
-			throw new InvalidEntityExeption("L'utilisateur n'est pas valide " , ErrorCodes.UTILISATEUR_NOT_VALID , errors );
-		}
+		//if(!errors.isEmpty()) {
+	//		log.error("L'utilisateur is not Valid {}" , appUserdto);
+		//	throw new InvalidEntityExeption("L'utilisateur n'est pas valide " , ErrorCodes.UTILISATEUR_NOT_VALID , errors );
+	//	}
 		
 		
 		String pw = appUserdto.getPassword();

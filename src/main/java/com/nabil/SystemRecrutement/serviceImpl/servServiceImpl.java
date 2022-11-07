@@ -1,19 +1,17 @@
 package com.nabil.SystemRecrutement.serviceImpl;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.nabil.SystemRecrutement.Repository.servRepository;
-import com.nabil.SystemRecrutement.Validator.candidatValidator;
-import com.nabil.SystemRecrutement.dto.CandidatDto;
 import com.nabil.SystemRecrutement.dto.ServicesDto;
+import com.nabil.SystemRecrutement.exception.EntityNotFoundException;
 import com.nabil.SystemRecrutement.exception.ErrorCodes;
-import com.nabil.SystemRecrutement.exception.InvalidEntityExeption;
+import com.nabil.SystemRecrutement.model.Services;
 import com.nabil.SystemRecrutement.service.servService;
-
 import lombok.extern.slf4j.Slf4j;
 
 @Service
@@ -72,4 +70,41 @@ public class servServiceImpl implements servService {
 		
 	}
 
+
+	@Override
+	public ServicesDto findById(Long id) {
+		
+		if(id==null) {
+			log.error("service ID is null");
+		          return null ;
+		       }	
+		Optional<Services> service =servRepository.findById(id);	
+		return Optional.of(ServicesDto.fromEntity(service.get())).orElseThrow( () ->  
+		new EntityNotFoundException(
+				"Aucun service avec l'ID =" + id + "n'ete trouve dans la BDD" , ErrorCodes.SERVICE_NOT_FOUND   
+				));	
+	}
+
+
+
+	@Override
+	public Services update(Long id, Services s) {
+		
+		Services serviceUpdate = servRepository.findById(id).get();
+		serviceUpdate.setNomServices(s.getNomServices());
+		
+		return servRepository.saveAndFlush(serviceUpdate);
+	}
+
+
+
+	
+
+
+
+	
+	
+
+
+	
 }

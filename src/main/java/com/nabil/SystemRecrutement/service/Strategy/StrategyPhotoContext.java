@@ -51,13 +51,10 @@ public class StrategyPhotoContext {
 			break ;
 		case "recruteur" :
 			strategy = beanFactory.getBean(beanName , saveRecruteurPhoto.class);
-
 			break ;
 		case "utilisateur" :
 			strategy = beanFactory.getBean(beanName , saveUserPhoto.class);
-
 			break ;
-			
 		  default : throw new InvalidOperationException("Contexte inconnue pour l'enregistrement du la photo", ErrorCodes.UNKNOWN_CONTEXT);
 
 			

@@ -1,12 +1,13 @@
 package com.nabil.SystemRecrutement.model;
 
-import java.time.Instant;
 import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,9 +25,8 @@ import lombok.NoArgsConstructor;
 @Table(name="DEMANDES")
 public class demandes extends AbstractEntity {
 
-	
+
 	private Date dateDemande ;
-	private float resultatConcours ;
 	private etatDemande etatDemande ;
 	
 	

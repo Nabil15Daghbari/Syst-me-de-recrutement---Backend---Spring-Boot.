@@ -12,7 +12,6 @@ public class demandesDto {
     
 	private Long    id ;
 	private Date dateDemande ;
-	private float resultatConcours ;
 	private int StatutCondidature ;
 	private CandidatDto candidat ;
 	private offresDto offre ;
@@ -34,7 +33,6 @@ public class demandesDto {
 		return   demandesDto.builder()
 				.id(demande.getId())
 				.dateDemande(demande.getDateDemande())
-				.resultatConcours(demande.getResultatConcours())
 				.candidat(CandidatDto.fromEntity(demande.getCandidat()))
 				.offre(offresDto.fromEntity(demande.getOffre()))
 				.etatDemande(demande.getEtatDemande())
@@ -54,7 +52,6 @@ public class demandesDto {
 		demandes demandes =new demandes();
 		demandes.setId(demandesDto.getId());
 		demandes.setDateDemande(demandesDto.getDateDemande());
-		demandes.setResultatConcours(demandesDto.getResultatConcours());
 		demandes.setCandidat(CandidatDto.toEntity(demandesDto.getCandidat()));
 		demandes.setOffre(offresDto.toEntity(demandesDto.getOffre()));
 		demandes.setEtatDemande(demandesDto.getEtatDemande());

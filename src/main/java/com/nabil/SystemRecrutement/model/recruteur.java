@@ -34,8 +34,8 @@ public class recruteur extends AbstractEntity {
 	private String nom ;
 	@Column(name="prenom")
 	private String prenom ;
-	@Embedded 
-	private Adresse adresse ;
+	//@Embedded 
+  //	private Adresse adresse ;
 	@Column(name="photo")
 	private String photo ;
 	@Column(name="tele")
@@ -44,8 +44,20 @@ public class recruteur extends AbstractEntity {
 	private String login ;
 	@Column(name="password")
 	private String password ; 
-	
 	private String Poste ;
+	
+	@Column(name="adresse1")
+	private String adresse1 ;
+	
+	@Column(name="ville")
+	private String ville ;
+	
+	@Column(name="codepostale")
+	private String codePostale ;
+	
+	@Column(name="pays")
+	private String pays ;
+	
 	
 	
     @OneToMany(mappedBy = "recruteur")

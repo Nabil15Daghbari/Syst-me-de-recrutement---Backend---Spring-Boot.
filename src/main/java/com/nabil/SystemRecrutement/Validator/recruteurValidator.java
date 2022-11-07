@@ -15,7 +15,7 @@ public class recruteurValidator {
 		if(recruteurDto ==null) {
 			errors.add("Veuillez renseigner le nom ");
 			errors.add("Veuillez renseigner le prenom ");
-			errors.add("Veuillez renseigner l'adresse  ");
+		
 			errors.add("Veuillez renseigner le numéro de telephone ");
 			errors.add("Veuillez renseigner Login ");
 			errors.add("Veuillez renseigner password ");
@@ -34,7 +34,7 @@ public class recruteurValidator {
 		
 		
 		
-		
+		/*
 		if(recruteurDto.getAdresse() == null) {
 			errors.add("Veuillez renseigner l'adresse du recruteur ");
 		}else {
@@ -67,7 +67,7 @@ public class recruteurValidator {
 
 		
 		
-	}
+	}*/
 		return errors ;
 }
 }

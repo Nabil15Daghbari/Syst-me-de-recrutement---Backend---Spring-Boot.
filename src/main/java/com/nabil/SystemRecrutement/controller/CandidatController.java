@@ -1,17 +1,24 @@
 package com.nabil.SystemRecrutement.controller;
 
 import java.util.List;
-
+import javax.servlet.ServletContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.nabil.SystemRecrutement.controller.api.CandidatApi;
 import com.nabil.SystemRecrutement.dto.CandidatDto;
 import com.nabil.SystemRecrutement.service.CandidatService;
 
+
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class CandidatController implements CandidatApi {
+	
+	
+	@Autowired
+	ServletContext context ;
+	
+	
 	
 	// Field Injection
 	private CandidatService candidatService ;
@@ -23,7 +30,7 @@ public class CandidatController implements CandidatApi {
 
 		
 		@Override
-		public CandidatDto save(CandidatDto dto) {
+		public CandidatDto save(CandidatDto dto )  {
 			
 			return candidatService.save(dto);
 		}
@@ -47,6 +54,9 @@ public class CandidatController implements CandidatApi {
 		}
 
 
+		
+
+	
 		
 
 		

@@ -3,19 +3,20 @@ package com.nabil.SystemRecrutement.service;
 import java.util.List;
 
 import com.nabil.SystemRecrutement.dto.offresDto;
+import com.nabil.SystemRecrutement.model.Offres;
 
 public interface OffresService {
 	
 	
-	 offresDto save(offresDto dto) ;
+	public offresDto save(offresDto dto) ;
 		
-	 offresDto findById(Long id);
+	public offresDto findById(Long id);
+	 
+	public Offres update(Long id , Offres offre) ;
 		
-	 List<offresDto> findAll();
+	public List<offresDto> findAll();
 		
-	 void delete(Long id);
+	public void delete(Long id);
 	 
-	 
-	 
-	 offresDto  findOffresByCodeOffre(String codeOffre);
+	public offresDto  findOffresByCodeOffre(String codeOffre);
 }

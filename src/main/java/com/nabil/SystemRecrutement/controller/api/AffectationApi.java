@@ -14,19 +14,25 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
 
-@Api(APP_ROOT + "/affectation")
+@Api( "/affectation")
 public interface AffectationApi  {
 	
+	
 	 @GetMapping(value=APP_ROOT + "/affectation/All" ,  produces = MediaType.APPLICATION_JSON_VALUE)
-	 @ApiOperation(value="rechercher les articles dans BDD" , notes="Cette methode permet de chercher les article dans BDD" , responseContainer =   "List<CandidatDto>")
+	 @ApiOperation(value="rechercher les affectation dans BDD" , notes="Cette methode permet de chercher les affectation dans BDD" , responseContainer = "List<ArticleDto>")
 		@ApiResponses(value= {
-				@ApiResponse(code= 200 , message ="les candidats ont ete trouvee dans l BD"),
-				@ApiResponse(code = 404 , message = "Aucun candidat n'existe dans BDD avec l'ID fourni")
+				@ApiResponse(code= 200 , message ="les affecation ont ete trouvee dans l BD"),
+				@ApiResponse(code = 404 , message = "Aucun affectation n'existe dans BDD avec l'ID fourni")
 		})
 	 List<AffectationDto> findAll() ;
 	 
 	 
-	 @GetMapping(value = APP_ROOT + "/affectations/filter/candidat/{idCandidat}", produces = MediaType.APPLICATION_JSON_VALUE)	 
+	 @GetMapping(value =APP_ROOT + "/affectations/filter/candidat/{idCandidat}", produces = MediaType.APPLICATION_JSON_VALUE)	 
+	 @ApiOperation(value="rechercher les affectation dans BDD" , notes="Cette methode permet de chercher les affectation dans BDD" , response = AffectationDto.class)
+		@ApiResponses(value= {
+				@ApiResponse(code= 200 , message ="les affecation ont ete trouvee dans l BD"),
+				@ApiResponse(code = 404 , message = "Aucun affectation n'existe dans BDD avec l'ID fourni")
+		})
 	 List<AffectationDto> findAffectationByIdCandidat(@PathVariable("idCandidat") Long idCandidat) ;
 	 
 

@@ -2,6 +2,8 @@ package com.nabil.SystemRecrutement.dto;
 
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
+
 import com.nabil.SystemRecrutement.model.Offres;
 
 import lombok.Builder;
@@ -26,8 +28,6 @@ public class offresDto {
 	private String cantrat ;
 	private String ville ;
 	private Date dateExpiration;
-	private Date dateOrale ;
-	private Date dateConcours ;
 	private int salaire ;
 	
 	private AdminDto admin ;
@@ -59,20 +59,17 @@ public class offresDto {
 				.cantrat(offres.getCantrat())
 				.ville(offres.getVille())
 				.dateExpiration(offres.getDateExpiration())
-				.dateOrale(offres.getDateOrale())
-				.dateConcours(offres.getDateConcours())
+			
 				.salaire(offres.getSalaire())
 				.admin(AdminDto.fromEntity(offres.getAdmin()))
 				.recruteur(recruteurDto.fromEntity(offres.getRecruteur()))
-			//	.demandes(
+				.demandes(
 						
-			//		         	 offres.getDemandes() != null ? 
-			//					 offres.getDemandes().stream()
-			//					 .map(demandesDto::fromEntity)
-			//					 .collect(Collectors.toList()) : null
-								
-						
-			//	)
+					         	 offres.getDemandes() != null ? 
+								 offres.getDemandes().stream()
+								 .map(demandesDto::fromEntity)
+								 .collect(Collectors.toList()) : null
+					)
 				
 				
 				
@@ -101,8 +98,6 @@ public class offresDto {
 		offres.setCantrat(offresDto.getCantrat());
 		offres.setVille(offresDto.getVille());
 		offres.setDateExpiration(offresDto.getDateExpiration());
-		offres.setDateOrale(offresDto.getDateOrale());
-		offres.setDateConcours(offresDto.getDateConcours());
 		offres.setSalaire(offresDto.getSalaire());
 		offres.setAdmin(AdminDto.toEntity(offresDto.getAdmin()));
 		offres.setRecruteur(recruteurDto.toEntity(offresDto.getRecruteur()));

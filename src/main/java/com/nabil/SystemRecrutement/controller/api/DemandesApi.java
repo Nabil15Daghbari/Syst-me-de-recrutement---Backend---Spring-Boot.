@@ -19,7 +19,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
-@Api(APP_ROOT + "/demande")
+@Api("/demande")
 public interface DemandesApi {
 
 	
@@ -44,7 +44,7 @@ public interface DemandesApi {
 	 // http://localhost:8081/systemrecrutement/v1/demande/All
 	 
     @GetMapping(value=APP_ROOT + "/demande/All" ,  produces = MediaType.APPLICATION_JSON_VALUE)
-		@ApiOperation(value="Enregister une demande " , notes="Cette methode permet d'enregistrer ou modofier une demande " , response = demandesDto.class)
+		@ApiOperation(value="Enregister une demande " , notes="Cette methode permet d'enregistrer ou modofier une demande " , responseContainer = "List<demandesDto>")
 		@ApiResponses(value= {
 				@ApiResponse(code= 200 , message ="le demande a ete trouvee dans l BD") ,
 				@ApiResponse(code=400 , message="Aucun demande n'existe dans BDD avec l'ID fourni ")

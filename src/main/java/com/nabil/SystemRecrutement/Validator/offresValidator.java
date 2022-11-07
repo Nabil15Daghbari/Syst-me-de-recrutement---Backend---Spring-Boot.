@@ -14,7 +14,9 @@ public class offresValidator {
 		if(offresDto ==null) {
 			
 			errors.add("Veuillez renseigner les connaissances");
-			errors.add("Veuillez renseigner l'experience");
+			errors.add("Veuillez renseigner le poste");
+			errors.add("Veuillez renseigner le nombre à recruter");
+			errors.add("Veuillez renseigner le salaire");
 			
 			return errors ;
 		}
@@ -24,8 +26,15 @@ public class offresValidator {
 		if(!StringUtils.hasLength(offresDto.getConnaissances())) {
 			errors.add("Veuillez renseigner les connaissances");
 		}
-		if(!StringUtils.hasLength(offresDto.getExperience())) {
-			errors.add("Veuillez renseigner l'experience");
+		
+		if(!StringUtils.hasLength(offresDto.getPoste())) {
+			errors.add("Veuillez renseigner le poste");
+		}
+		if(offresDto.getNbrARecruter() == 0) {
+			errors.add("Veuillez renseigner le nombre à recruter");
+		}
+		if(offresDto.getSalaire() == 0) {
+			errors.add("Veuillez renseigner le salaire");
 		}
 		
 		

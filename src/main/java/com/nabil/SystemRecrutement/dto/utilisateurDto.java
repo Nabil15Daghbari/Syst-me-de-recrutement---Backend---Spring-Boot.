@@ -13,64 +13,64 @@ import lombok.Data;
 @Builder
 public class utilisateurDto {
 
-	private Long  id  ;
-	private String nom ;
-	private String prenom ;
-	private String email ;
-	private Instant dateDeNaissance ;
-    private	String motDePasse ;
-    private AdresseDto adresse ;
-    private String photo ;
-    private List<RolesDto> roles;
-    
-    
-    
-    public static utilisateurDto fromEntity(Utilisateur u) {
-		if(u == null) {
-			return null ;
-		}
-		
-		return utilisateurDto.builder()
-				.id(u.getId())
-				.nom(u.getNom())
-				.prenom(u.getPrenom())
-				.adresse(AdresseDto.fromEntity(u.getAdresse()))
-				.photo(u.getPhoto())
-				.email(u.getEmail())
-				.dateDeNaissance(u.getDateDeNaissance())
-				.motDePasse(u.getMotDePasse())
-				
-			//	.roles    (
-				//		    u.getRoles() !=null ?
-				//			u.getRoles().stream()
-				//			.map(RolesDto :: fromEntity)
-				//			.collect(Collectors.toList()) : null
-				//		  )
-				.build();
-				
-				
-				
-		
-      }
-	
-	
-	public static Utilisateur toEntity(utilisateurDto ud ) {
-		if(ud == null) {
-			return null ;
-		}
-		
-		Utilisateur u  =new Utilisateur();
-		u.setId(ud.getId());
-		u.setNom(ud.getNom());
-		u.setPrenom(ud.getPrenom());
-		u.setPhoto(ud.getPhoto());
-		u.setEmail(ud.getEmail());
-		u.setDateDeNaissance(ud.getDateDeNaissance());
-		u.setMotDePasse(ud.getMotDePasse());
-		u.setAdresse(AdresseDto.toEntity(ud.getAdresse()));
-		
-		
-		return u ;
-	}
+	private Long id;
+
+	  private String nom;
+
+	  private String prenom;
+
+	  private String email;
+
+	  private Instant dateDeNaissance;
+
+	  private String moteDePasse;
+
+	  private AdresseDto adresse;
+
+	  private String photo;
+
+
+	  private List<RolesDto> roles;
+
+	  public static utilisateurDto fromEntity(Utilisateur utilisateur) {
+	    if (utilisateur == null) {
+	      return null;
+	    }
+
+	    return utilisateurDto.builder()
+	        .id(utilisateur.getId())
+	        .nom(utilisateur.getNom())
+	        .prenom(utilisateur.getPrenom())
+	        .email(utilisateur.getEmail())
+	        .moteDePasse(utilisateur.getMoteDePasse())
+	        .dateDeNaissance(utilisateur.getDateDeNaissance())
+	        .adresse(AdresseDto.fromEntity(utilisateur.getAdresse()))
+	        .photo(utilisateur.getPhoto())
+	        .roles(
+	            utilisateur.getRoles() != null ?
+	                utilisateur.getRoles().stream()
+	                    .map(RolesDto::fromEntity)
+	                    .collect(Collectors.toList()) : null
+	        )
+	        .build();
+	  }
+
+	  public static Utilisateur toEntity(utilisateurDto dto) {
+	    if (dto == null) {
+	      return null;
+	    }
+
+	    Utilisateur utilisateur = new Utilisateur();
+	    utilisateur.setId(dto.getId());
+	    utilisateur.setNom(dto.getNom());
+	    utilisateur.setPrenom(dto.getPrenom());
+	    utilisateur.setEmail(dto.getEmail());
+	    utilisateur.setMoteDePasse(dto.getMoteDePasse());
+	    utilisateur.setDateDeNaissance(dto.getDateDeNaissance());
+	    utilisateur.setAdresse(AdresseDto.toEntity(dto.getAdresse()));
+	    utilisateur.setPhoto(dto.getPhoto());
+
+	    return utilisateur;
+	  }
 
 }

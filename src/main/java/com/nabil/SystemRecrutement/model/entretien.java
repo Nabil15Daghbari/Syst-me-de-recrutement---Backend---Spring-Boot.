@@ -7,6 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,6 +35,7 @@ public class entretien extends AbstractEntity {
 	@Column(name="prenomCandidat")
 	private String   prenomCandidat ;
 	@Column(name="dateEntretien")
+	
 	private Instant  dateEntretien ;
 	@Column(name="email")
 	private String   email ; 

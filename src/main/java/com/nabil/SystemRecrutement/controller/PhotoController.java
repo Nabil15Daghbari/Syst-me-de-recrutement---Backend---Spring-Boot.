@@ -15,8 +15,7 @@ import com.nabil.SystemRecrutement.service.Strategy.StrategyPhotoContext;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
-
+//@CrossOrigin(origins = "http://localhost:4200")
 public class PhotoController implements PhotoApi {
 
 	private StrategyPhotoContext strategyPhotoContext ;

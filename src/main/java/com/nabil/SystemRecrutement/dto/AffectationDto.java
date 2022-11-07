@@ -32,13 +32,13 @@ public static AffectationDto fromEntity(Affectation affectation ) {
 				.id(affectation.getId())
 				.dateAffectation(affectation.getDateAffectation())
 				.candidat(CandidatDto.fromEntity(affectation.getCandidat()))
-				//.services(
-				//		   affectation.getServices()  != null ?
-				//		   affectation.getServices() .stream()
-				//		   .map(ServicesDto::fromEntity)
-				//		   .collect(Collectors.toList()) : null
+				.services(
+						   affectation.getServices()  != null ?
+					   affectation.getServices() .stream()
+						   .map(ServicesDto::fromEntity)
+						   .collect(Collectors.toList()) : null
 						
-				//		)
+						)
 		
 				.build();		
 						

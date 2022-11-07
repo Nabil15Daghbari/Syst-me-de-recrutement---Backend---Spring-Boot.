@@ -137,7 +137,7 @@ public class DemandesSeriveImpl  implements DemandesService{
 		if(idDemande == null) {
 			log.error("Id demande est null ");
 			
-			throw new InvalidEntityExeption("L'ID demande n'est null ");
+			throw new InvalidEntityExeption("L'ID demande n'est pas null ");
 			
 		}
 		

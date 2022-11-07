@@ -84,7 +84,7 @@ public class JwtAuthenticationFilters extends UsernamePasswordAuthenticationFilt
 		 idToken.put("refresh-token", jwtRefreshToken);
 		 response.setContentType("application/json");
 		 
-		 new ObjectMapper().writeValue(response.getOutputStream(), idToken);
+	//	 new ObjectMapper().writeValue(response.getOutputStream(), idToken);
 		 
 		 
 		 // token atla3 foug fi postman taw telgeha 

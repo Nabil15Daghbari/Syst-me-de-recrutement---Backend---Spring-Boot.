@@ -16,7 +16,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
-@Api(APP_ROOT + "/entretien")
+@Api( "/entretien")
 public interface EntretienApi {
 
 	
@@ -47,7 +47,7 @@ public interface EntretienApi {
 	 // http://localhost:8081/systemrecrutement/v1/candidat/All
 	 
 	 @GetMapping(value=APP_ROOT + "/entretien/All" ,  produces = MediaType.APPLICATION_JSON_VALUE)
-	 @ApiOperation(value="rechercher les entretien " , notes="Cette methode permet de chercher les entretiens dans BDD " , response = entretienDto.class)
+	 @ApiOperation(value="rechercher les entretien " , notes="Cette methode permet de chercher les entretiens dans BDD " , responseContainer = "List<entretienDto>")
 		@ApiResponses(value= {
 				@ApiResponse(code= 200 , message ="les entretien  ont ete trouvee dans l BD") ,
 				@ApiResponse(code=400 , message=" Aucun entretienn'existe dans BDD avec l'ID fourni ")

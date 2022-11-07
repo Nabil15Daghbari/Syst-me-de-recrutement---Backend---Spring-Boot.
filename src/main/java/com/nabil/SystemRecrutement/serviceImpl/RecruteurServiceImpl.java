@@ -80,6 +80,29 @@ public class RecruteurServiceImpl implements RecruteurService {
 		
 		recruteurRepository.deleteById(id); 
 	}
+
+
+
+
+
+	@Override
+	public recruteur update(Long id, recruteur recruteur) {
+
+		recruteur recruteurUpdate = recruteurRepository.findById(id).get();
+		
+		recruteurUpdate.setCin(recruteur.getCin());
+		recruteurUpdate.setAge(recruteur.getAge());
+		recruteurUpdate.setEmail(recruteur.getEmail());
+		recruteurUpdate.setNom(recruteur.getNom());
+		recruteurUpdate.setPrenom(recruteur.getPrenom());
+		//recruteurUpdate.setAdresse(recruteur.getAdresse());
+		recruteurUpdate.setTele(recruteur.getTele());
+		recruteurUpdate.setLogin(recruteur.getLogin());
+		recruteurUpdate.setPassword(recruteur.getPassword());
+		recruteurUpdate.setPoste(recruteur.getPoste());
+		
+		return recruteurRepository.saveAndFlush(recruteurUpdate);
+	}
 		
 	
 

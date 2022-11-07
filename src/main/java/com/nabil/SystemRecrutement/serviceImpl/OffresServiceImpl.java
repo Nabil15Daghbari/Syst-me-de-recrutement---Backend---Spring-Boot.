@@ -14,6 +14,7 @@ import com.nabil.SystemRecrutement.exception.EntityNotFoundException;
 import com.nabil.SystemRecrutement.exception.ErrorCodes;
 import com.nabil.SystemRecrutement.exception.InvalidEntityExeption;
 import com.nabil.SystemRecrutement.model.Offres;
+import com.nabil.SystemRecrutement.model.Services;
 import com.nabil.SystemRecrutement.service.OffresService;
 import lombok.extern.slf4j.Slf4j;
 
@@ -39,10 +40,10 @@ public class OffresServiceImpl implements OffresService{
 	public offresDto save(offresDto dto) {
        List<String> errors =offresValidator.validate(dto);
 		
-	//	if(!errors.isEmpty()) {
-	//	log.error("l'offre  in not Valid{}" , dto);
-	//		throw new InvalidEntityExeption("L'offre n'est pas valide ", ErrorCodes.OFFRE_NOT_VALID, errors );
-	//	}
+		if(!errors.isEmpty()) {
+		log.error("l'offre  in not Valid{}" , dto);
+			throw new InvalidEntityExeption("L'offre n'est pas valide ", ErrorCodes.OFFRE_NOT_VALID, errors );
+		}
 		return offresDto.fromEntity(offresRepository.save(offresDto.toEntity(dto)));
 	}
 
@@ -105,6 +106,32 @@ public class OffresServiceImpl implements OffresService{
 		                "Aucun offre avec le CODE = " + codeOffre + " n' ete trouve dans la BDD",
 		                ErrorCodes.OFFRE_NOT_FOUND)
 		        );
+	}
+
+
+
+
+	@Override
+	public Offres update(Long id, Offres offre) {
+		Offres offreUpdate = offresRepository.findById(id).get();
+		offreUpdate.setCodeOffre(offre.getCodeOffre());
+		offreUpdate.setPoste(offre.getPoste());
+		offreUpdate.setMission(offre.getMission());
+		offreUpdate.setConnaissances(offre.getConnaissances());
+		offreUpdate.setNiveauEtudes(offre.getNiveauEtudes());
+		offreUpdate.setFormation(offre.getFormation());
+		offreUpdate.setExperience(offre.getExperience());
+		offreUpdate.setCriteres(offre.getCriteres());
+		offreUpdate.setDomaine(offre.getDomaine());
+		offreUpdate.setLangues(offre.getLangues());
+		offreUpdate.setNbrARecruter(offre.getNbrARecruter());
+		offreUpdate.setCantrat(offre.getCantrat());
+		offreUpdate.setDateExpiration(offre.getDateExpiration());
+		offreUpdate.setSalaire(offre.getSalaire());
+		offreUpdate.setVille(offre.getVille());
+		
+
+		return offresRepository.saveAndFlush(offreUpdate);
 	}
 		
 	

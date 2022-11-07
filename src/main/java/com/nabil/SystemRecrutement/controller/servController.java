@@ -3,6 +3,7 @@
 
 package com.nabil.SystemRecrutement.controller;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.nabil.SystemRecrutement.controller.api.servApi;
 import com.nabil.SystemRecrutement.dto.ServicesDto;
+import com.nabil.SystemRecrutement.model.Services;
 import com.nabil.SystemRecrutement.service.servService;
 
 @RestController
@@ -44,5 +46,17 @@ public class servController implements servApi {
 	public void delete(Long id) {
 		servService.delete(id);		
 	}
+
+
+
+	@Override
+	public Services update(Long id, Services s) {
+		return servService.update(id, s);
+	}
+
+
+
+
+	
 
 }
