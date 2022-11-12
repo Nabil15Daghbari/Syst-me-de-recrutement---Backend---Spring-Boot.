@@ -42,7 +42,7 @@ public class Offres extends AbstractEntity {
 	private int nbrARecruter ;
 	private String cantrat ;
 	private String ville ;
-	
+
 	private Date dateExpiration;
 	private int salaire ;
 	

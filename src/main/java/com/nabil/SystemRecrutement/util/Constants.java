@@ -13,6 +13,8 @@ public interface Constants {
 		 
 		 String CV_ENDPOINT = APP_ROOT + "/cv";
 		 
+		  String ENTREPRISE_ENDPOINT = APP_ROOT + "/entreprises";
+		 
 
 
 }

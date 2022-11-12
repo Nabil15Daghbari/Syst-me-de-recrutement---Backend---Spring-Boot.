@@ -13,7 +13,7 @@ import com.nabil.SystemRecrutement.service.OffresService;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 public class OffresController implements OffresApi{
 	
 	private OffresService offresService  ;

@@ -9,7 +9,7 @@ import com.nabil.SystemRecrutement.dto.contratsDto;
 import com.nabil.SystemRecrutement.service.ContratsService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 
 public class ContratsController implements ContratsApi {
 	

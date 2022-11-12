@@ -3,6 +3,9 @@ package com.nabil.SystemRecrutement.dto;
 import java.time.Instant;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import javax.persistence.Column;
+
 import com.nabil.SystemRecrutement.model.Utilisateur;
 import lombok.Builder;
 import lombok.Data;
@@ -25,10 +28,19 @@ public class utilisateurDto {
 
 	  private String moteDePasse;
 
-	  private AdresseDto adresse;
+	//  private AdresseDto adresse;
+	  
+		private String adresse1 ;
+		
+		private String ville ;
+		
+		private String codePostale ;
+		
+		private String pays ;
 
 	  private String photo;
 
+	  private EntrepriseDto entreprise;
 
 	  private List<RolesDto> roles;
 
@@ -44,8 +56,13 @@ public class utilisateurDto {
 	        .email(utilisateur.getEmail())
 	        .moteDePasse(utilisateur.getMoteDePasse())
 	        .dateDeNaissance(utilisateur.getDateDeNaissance())
-	        .adresse(AdresseDto.fromEntity(utilisateur.getAdresse()))
+	      //  .adresse(AdresseDto.fromEntity(utilisateur.getAdresse()))
 	        .photo(utilisateur.getPhoto())
+	        .entreprise(EntrepriseDto.fromEntity(utilisateur.getEntreprise()))
+	        .adresse1(utilisateur.getAdresse1())
+			.pays(utilisateur.getPays())
+			.ville(utilisateur.getVille())
+			.codePostale(utilisateur.getCodePostale())
 	        .roles(
 	            utilisateur.getRoles() != null ?
 	                utilisateur.getRoles().stream()
@@ -67,8 +84,16 @@ public class utilisateurDto {
 	    utilisateur.setEmail(dto.getEmail());
 	    utilisateur.setMoteDePasse(dto.getMoteDePasse());
 	    utilisateur.setDateDeNaissance(dto.getDateDeNaissance());
-	    utilisateur.setAdresse(AdresseDto.toEntity(dto.getAdresse()));
+	 //   utilisateur.setAdresse(AdresseDto.toEntity(dto.getAdresse()));
 	    utilisateur.setPhoto(dto.getPhoto());
+	    utilisateur.setEntreprise(EntrepriseDto.toEntity(dto.getEntreprise()));
+	    
+	    utilisateur.setAdresse1(dto.getAdresse1());
+	    utilisateur.setPays(dto.getPays());
+	    utilisateur.setVille(dto.getVille());
+	    utilisateur.setCodePostale(dto.getCodePostale());
+		
+
 
 	    return utilisateur;
 	  }

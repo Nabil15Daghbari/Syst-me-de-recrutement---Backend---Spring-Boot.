@@ -11,7 +11,7 @@ import com.nabil.SystemRecrutement.service.CandidatService;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 public class CandidatController implements CandidatApi {
 	
 	

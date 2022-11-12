@@ -11,7 +11,7 @@ import com.nabil.SystemRecrutement.dto.AffectationDto;
 import com.nabil.SystemRecrutement.service.AffectationService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 
 public class AffectationController implements AffectationApi{
 

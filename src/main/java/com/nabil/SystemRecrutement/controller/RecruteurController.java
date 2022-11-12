@@ -11,7 +11,7 @@ import com.nabil.SystemRecrutement.dto.recruteurDto;
 import com.nabil.SystemRecrutement.model.recruteur;
 import com.nabil.SystemRecrutement.service.RecruteurService;
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 public class RecruteurController implements RecruteurApi{
 	
 	

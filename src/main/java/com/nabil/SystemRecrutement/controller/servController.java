@@ -15,7 +15,7 @@ import com.nabil.SystemRecrutement.model.Services;
 import com.nabil.SystemRecrutement.service.servService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 public class servController implements servApi {
 
 	

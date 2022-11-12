@@ -11,7 +11,7 @@ import com.nabil.SystemRecrutement.service.entretienService;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 
 public class EntretienController implements EntretienApi{
 	

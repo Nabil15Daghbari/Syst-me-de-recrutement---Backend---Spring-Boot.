@@ -63,6 +63,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	    http.addFilterBefore(corsFilter(), SessionManagementFilter.class)
 	        .csrf().disable()
 	        .authorizeRequests().antMatchers("/**/authenticate",
+	        // "/**/systemrecrutement/v1/**" , 
 	        "/**/entreprises/create",
 	        "/v2/api-docs",
 	        "/swagger-resources",
@@ -73,7 +74,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	        "/webjars/**",
 	        "/v3/api-docs/**",
 	        "/swagger-ui/**").permitAll()
-	     //   .anyRequest().authenticated()
+	        .anyRequest().authenticated()
 	        .and().sessionManagement()
 	        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 	    ;
@@ -81,7 +82,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	    http.addFilterBefore(applicationRequestFilter, UsernamePasswordAuthenticationFilter.class);
 	  }
 
-	  @Bean
+	  
+	  @Bean  
 	  public CorsFilter corsFilter() {
 	    final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 	    final CorsConfiguration config = new CorsConfiguration();
@@ -89,7 +91,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	    // Don't do this in production, use a proper list  of allowed origins
 	    config.setAllowedOriginPatterns(Collections.singletonList("*"));
 	    config.setAllowedHeaders(Arrays.asList("Origin", "Content-Type", "Accept", "Authorization"));
-	    config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "OPTIONS", "DELETE", "PATCH"));
+	    config.setAllowedMethods(Arrays.asList( "GET", "POST", "PUT", "OPTIONS", "DELETE", "PATCH"));
 	    source.registerCorsConfiguration("/**", config);
 	    return new CorsFilter(source);
 	  }
@@ -108,7 +110,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	  
 	  @Override
 	  public void configure(WebSecurity web) {
-	      // يضطر جدار الحماية الجديد إلى الكتابة فوق الأصل
 	      web.httpFirewall(defaultHttpFirewall());
 	  }
 	   

@@ -14,7 +14,7 @@ import com.nabil.SystemRecrutement.service.DemandesService;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 
 public class DemandesController implements DemandesApi {
 

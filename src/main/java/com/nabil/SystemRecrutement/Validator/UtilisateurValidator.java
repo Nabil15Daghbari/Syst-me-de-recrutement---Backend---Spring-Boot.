@@ -34,7 +34,7 @@ public class UtilisateurValidator {
 	    if (utilisateurDto.getDateDeNaissance() == null) {
 	      errors.add("Veuillez renseigner la date de naissance d'utilisateur");
 	    }
-	    errors.addAll(AdresseValidator.validate(utilisateurDto.getAdresse()));
+	  //  errors.addAll(AdresseValidator.validate(utilisateurDto.getAdresse()));
 
 	    return errors;
 	  }

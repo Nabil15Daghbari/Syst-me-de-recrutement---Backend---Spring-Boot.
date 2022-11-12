@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -36,13 +38,29 @@ public class Utilisateur extends AbstractEntity {
 	  @Column(name = "motdepasse")
 	  private String moteDePasse;
 
-	  @Embedded
-	  private Adresse adresse;
+	 // @Embedded
+	 // private Adresse adresse;
+	  
+		@Column(name="adresse1")
+		private String adresse1 ;
+		
+		@Column(name="ville")
+		private String ville ;
+		
+		@Column(name="codepostale")
+		private String codePostale ;
+		
+		@Column(name="pays")
+		private String pays ;
+	  
 
 	  @Column(name = "photo")
 	  private String photo;
 
-	
+	  @ManyToOne
+	  @JoinColumn(name = "identreprise")
+	  private Entreprise entreprise;
+
 
 	  @OneToMany(fetch = FetchType.EAGER, mappedBy = "utilisateur")
 	  @JsonIgnore

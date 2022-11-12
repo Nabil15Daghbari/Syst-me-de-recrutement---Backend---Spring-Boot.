@@ -30,7 +30,7 @@ public class ApplicationUserDetailsService implements UserDetailsService {
 	    List<SimpleGrantedAuthority> authorities = new ArrayList<>();
 	    utilisateur.getRoles().forEach(role -> authorities.add(new SimpleGrantedAuthority(role.getRoleName())));
 
-	    return new ExtendedUser(utilisateur.getEmail(), utilisateur.getMoteDePasse() , authorities);
+	    return new ExtendedUser(utilisateur.getEmail(), utilisateur.getMoteDePasse() , utilisateur.getEntreprise().getId(), authorities);
 	  }
 
 }
