@@ -5,7 +5,6 @@ import java.io.InputStream;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.flickr4java.flickr.FlickrException;
 import com.nabil.SystemRecrutement.exception.ErrorCodes;
 import com.nabil.SystemRecrutement.exception.InvalidOperationException;
@@ -52,8 +51,11 @@ public class StrategyPhotoContext {
 		case "recruteur" :
 			strategy = beanFactory.getBean(beanName , saveRecruteurPhoto.class);
 			break ;
+		case "entreprise" :
+		        strategy = beanFactory.getBean(beanName, SaveEntreprisePhoto.class);
+		          break;
 		case "utilisateur" :
-			strategy = beanFactory.getBean(beanName , saveUserPhoto.class);
+			strategy = beanFactory.getBean(beanName , SaveUtilisateurPhoto.class);
 			break ;
 		  default : throw new InvalidOperationException("Contexte inconnue pour l'enregistrement du la photo", ErrorCodes.UNKNOWN_CONTEXT);
 

@@ -3,6 +3,7 @@ package com.nabil.SystemRecrutement.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -58,11 +59,11 @@ public class recruteur extends AbstractEntity {
 	@Column(name="pays")
 	private String pays ;
 	
+	//mappedBy = "recruteur" ,
 	
-	
-    @OneToMany(mappedBy = "recruteur")
+    @OneToMany( mappedBy="recruteur")
     private List<Offres> offres ;
-	
+
 	
 
 }

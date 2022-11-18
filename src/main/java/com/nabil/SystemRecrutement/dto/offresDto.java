@@ -63,13 +63,13 @@ public class offresDto {
 				.salaire(offres.getSalaire())
 				.admin(AdminDto.fromEntity(offres.getAdmin()))
 				.recruteur(recruteurDto.fromEntity(offres.getRecruteur()))
-				.demandes(
+			//	.demandes(
 						
-					         	 offres.getDemandes() != null ? 
-								 offres.getDemandes().stream()
-								 .map(demandesDto::fromEntity)
-								 .collect(Collectors.toList()) : null
-					)
+				//	         	 offres.getDemandes() != null ? 
+				//				 offres.getDemandes().stream()
+				//				 .map(demandesDto::fromEntity)
+				//				 .collect(Collectors.toList()) : null
+				//	)
 				
 				
 				

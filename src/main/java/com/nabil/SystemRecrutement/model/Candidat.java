@@ -49,10 +49,7 @@ public class Candidat extends AbstractEntity{
 	@Column(name="tele")
 	private String tele ;
 	
-	
-	
-	
-		
+
 	
     
 	@OneToMany(mappedBy = "candidat")

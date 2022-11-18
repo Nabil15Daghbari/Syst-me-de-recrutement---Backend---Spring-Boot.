@@ -3,6 +3,7 @@ package com.nabil.SystemRecrutement.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -42,7 +43,6 @@ public class Offres extends AbstractEntity {
 	private int nbrARecruter ;
 	private String cantrat ;
 	private String ville ;
-
 	private Date dateExpiration;
 	private int salaire ;
 	
