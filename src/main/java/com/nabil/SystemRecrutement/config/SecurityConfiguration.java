@@ -52,7 +52,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	  private ApplicationRequestFilter applicationRequestFilter;
 
 	  @Override
+	  
 	  protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		  // défifnt un objet qui s'appelle userDetailsService : c'est un service fournit par spring 
+		  // on doit creé pour que le spring qu'elle doit faire pour authentifier cette utilisateur
+		  // userDetailsService : va utiliser le service applicationUserDetailsService
 	    auth.userDetailsService(applicationUserDetailsService)
 	    .passwordEncoder(passwordEncoder())
 	    ;
@@ -74,7 +78,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	        "/webjars/**",
 	        "/v3/api-docs/**",
 	        "/swagger-ui/**").permitAll()
-	        .anyRequest().authenticated()
+	      //  .anyRequest().authenticated()
 	        .and().sessionManagement()
 	        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 	    ;
@@ -88,7 +92,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	    final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 	    final CorsConfiguration config = new CorsConfiguration();
 	    config.setAllowCredentials(true);
-	    // Don't do this in production, use a proper list  of allowed origins
 	    config.setAllowedOriginPatterns(Collections.singletonList("*"));
 	    config.setAllowedHeaders(Arrays.asList("Origin", "Content-Type", "Accept", "Authorization"));
 	    config.setAllowedMethods(Arrays.asList( "GET", "POST", "PUT", "OPTIONS", "DELETE", "PATCH"));

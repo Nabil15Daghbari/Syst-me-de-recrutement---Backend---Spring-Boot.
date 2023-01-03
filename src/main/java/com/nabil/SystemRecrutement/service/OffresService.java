@@ -19,4 +19,7 @@ public interface OffresService {
 	public void delete(Long id);
 	 
 	public offresDto  findOffresByCodeOffre(String codeOffre);
+	
+	
+	public List<Object> avg();
 }

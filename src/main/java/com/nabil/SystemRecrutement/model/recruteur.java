@@ -59,10 +59,13 @@ public class recruteur extends AbstractEntity {
 	@Column(name="pays")
 	private String pays ;
 	
+	@Column(name = "identreprise")
+	private Long idEntreprise;
+	
 	//mappedBy = "recruteur" ,
 	
-    @OneToMany( mappedBy="recruteur")
-    private List<Offres> offres ;
+    //@OneToMany( mappedBy="recruteur")
+   // private List<Offres> offres ;
 
 	
 

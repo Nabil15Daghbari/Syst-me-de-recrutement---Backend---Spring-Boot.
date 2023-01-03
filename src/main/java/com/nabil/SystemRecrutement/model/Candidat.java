@@ -50,7 +50,8 @@ public class Candidat extends AbstractEntity{
 	private String tele ;
 	
 
-	
+	@Column(name = "identreprise")
+	private Long idEntreprise;
     
 	@OneToMany(mappedBy = "candidat")
 	private List<demandes> demandes ;

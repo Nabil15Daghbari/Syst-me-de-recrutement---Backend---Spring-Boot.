@@ -38,7 +38,7 @@ public class StrategyPhotoContext {
 		return strategy.savePhoto(id, photo, title);
 		
 	}
-	
+	     
 	
 	private void determinContext(String context) {
 		

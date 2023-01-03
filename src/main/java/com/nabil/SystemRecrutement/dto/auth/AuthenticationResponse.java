@@ -8,7 +8,7 @@ import lombok.Data;
 @Builder 
 public class AuthenticationResponse {
 	
-	
+	// accessToken :c'est le token qui sera utiliser pour authentification
 	private String accessToken ;
 
 }

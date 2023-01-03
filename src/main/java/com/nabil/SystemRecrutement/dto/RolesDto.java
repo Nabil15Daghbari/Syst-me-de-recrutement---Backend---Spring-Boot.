@@ -2,6 +2,8 @@ package com.nabil.SystemRecrutement.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.nabil.SystemRecrutement.model.Roles;
+import com.nabil.SystemRecrutement.model.RolesName;
+
 import lombok.Builder;
 import lombok.Data;
 

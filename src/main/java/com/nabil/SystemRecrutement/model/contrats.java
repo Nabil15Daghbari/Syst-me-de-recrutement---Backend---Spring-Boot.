@@ -13,10 +13,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -42,6 +40,10 @@ public class contrats extends AbstractEntity {
 	private BigDecimal   salaire ;
 	@Column(name="signature")
 	private String   signature ; 
+	
+	
+	@Column(name = "identreprise")
+	private Long idEntreprise;
 
 	
 }

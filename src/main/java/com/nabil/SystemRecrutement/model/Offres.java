@@ -1,5 +1,6 @@
 package com.nabil.SystemRecrutement.model;
 
+import java.time.Instant;
 import java.util.Date;
 import java.util.List;
 
@@ -43,15 +44,17 @@ public class Offres extends AbstractEntity {
 	private int nbrARecruter ;
 	private String cantrat ;
 	private String ville ;
-	private Date dateExpiration;
+	private String dateExpiration;
 	private int salaire ;
 	
+	@Column(name = "identreprise")
+	private Long idEntreprise;
 	
 	@OneToMany(mappedBy = "offre")
-	private List<demandes> demandes ;
+	private List<demandes> demandes ;   
 	
-	@ManyToOne
-	private recruteur recruteur  ;
+	//@ManyToOne
+	//private recruteur recruteur  ;
 	
 	
 	@ManyToOne

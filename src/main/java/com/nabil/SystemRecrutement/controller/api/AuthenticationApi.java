@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import io.swagger.annotations.Api;
 
-// @Api( "/refreshToken")
+ @Api( "/refreshToken")
 public interface AuthenticationApi {
 	
 	@GetMapping(value=APP_ROOT + "/refreshToken" )

@@ -1,9 +1,7 @@
 package com.nabil.SystemRecrutement.controller.api;
 
 import static com.nabil.SystemRecrutement.util.Constants.APP_ROOT;
-
 import java.util.List;
-
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,8 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import com.nabil.SystemRecrutement.dto.demandesDto;
+import com.nabil.SystemRecrutement.model.demandes;
 import com.nabil.SystemRecrutement.model.etatDemande;
-
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -62,12 +60,41 @@ public interface DemandesApi {
 	
 	 
 	
-	 @PatchMapping(value=APP_ROOT + "demande/update/etatDemande/{idDemande}/{etatDemande}" )
+	 @PatchMapping(value=APP_ROOT + "/demande/update/etatDemande/{idDemande}/{etatDemande}" )
 		@ApiOperation(value="modifier etat demande par ID " , notes="Cette methode permet de modifier l'etat  d'une  demande par son ID" , response = demandesDto.class)
 		@ApiResponses(value= {
 				@ApiResponse(code= 200 , message ="l'etet du deande a ete modifier ") 
 		})
 	 demandesDto updateEtatDemande(@PathVariable("idDemande") Long id , @PathVariable("etatDemande") etatDemande etatDemande);
+	 
+	 
+	 @GetMapping(value = APP_ROOT + "/demande/filter/offre/{idOffre}", produces = MediaType.APPLICATION_JSON_VALUE)
+	 List<demandesDto> findAllDemandeByIdOffre(@PathVariable("idOffre") Long idOffre);
+	 
+	 
+	 
+	 @GetMapping(value = APP_ROOT + "/demande/filter/demandes/{etat}", produces = MediaType.APPLICATION_JSON_VALUE)
+	 List<demandesDto> findDemandeByEtatDemande(@PathVariable("etat") etatDemande etat) ;
+	 
+	 @GetMapping(value = APP_ROOT + "/demande/count/demandes/{etat}", produces = MediaType.APPLICATION_JSON_VALUE)
+	 List<Object> countDemandeByEtatDemande(@PathVariable("etat") etatDemande etat) ;
+	 
+	 @GetMapping(value = APP_ROOT + "/demande/getNombre/{annee}", produces = MediaType.APPLICATION_JSON_VALUE)
+	 List<demandes> GetNombreDemande(@PathVariable("annee") String annee ) ;
+	 
+	 
+	 @GetMapping(value = APP_ROOT + "/demande/filter/{cin}", produces = MediaType.APPLICATION_JSON_VALUE)
+	 List<demandesDto> findDemandeByCin(@PathVariable("cin") String cin) ;
+	 
+	 
+	 @GetMapping(value = APP_ROOT + "/demande/count/nbr/offre/{idOffre}", produces = MediaType.APPLICATION_JSON_VALUE)
+	 List<Object> countDemandeByOffre(@PathVariable("idOffre") Long idOffre) ;
+	 
+	 
+	 @GetMapping(value = APP_ROOT + "/demande/nbr", produces = MediaType.APPLICATION_JSON_VALUE)
+	 List<?> GetNombreDemByOffre() ;
+	 
+	 
 	 
 	 
 	 

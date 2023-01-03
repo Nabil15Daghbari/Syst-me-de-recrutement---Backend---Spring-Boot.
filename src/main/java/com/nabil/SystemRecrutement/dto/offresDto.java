@@ -1,5 +1,6 @@
 package com.nabil.SystemRecrutement.dto;
 
+import java.time.Instant;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,18 +24,22 @@ public class offresDto {
 	private String experience ;
 	private String criteres;
 	private String domaine ;
-	private String langues ;
+	private String langues ;  
 	private int nbrARecruter ;
 	private String cantrat ;
 	private String ville ;
-	private Date dateExpiration;
+	private String  dateExpiration;
 	private int salaire ;
+	
+	private Long idEntreprise;
+	
 	
 	private AdminDto admin ;
 	
-	private recruteurDto recruteur  ;
+	//private recruteurDto recruteur  ;
 	
 	private List<demandesDto> demandes ;
+	
 
 
 	
@@ -61,8 +66,9 @@ public class offresDto {
 				.dateExpiration(offres.getDateExpiration())
 			
 				.salaire(offres.getSalaire())
+				.idEntreprise(offres.getIdEntreprise())
 				.admin(AdminDto.fromEntity(offres.getAdmin()))
-				.recruteur(recruteurDto.fromEntity(offres.getRecruteur()))
+			//	.recruteur(recruteurDto.fromEntity(offres.getRecruteur()))
 			//	.demandes(
 						
 				//	         	 offres.getDemandes() != null ? 
@@ -99,8 +105,9 @@ public class offresDto {
 		offres.setVille(offresDto.getVille());
 		offres.setDateExpiration(offresDto.getDateExpiration());
 		offres.setSalaire(offresDto.getSalaire());
+		offres.setIdEntreprise(offresDto.getIdEntreprise());
 		offres.setAdmin(AdminDto.toEntity(offresDto.getAdmin()));
-		offres.setRecruteur(recruteurDto.toEntity(offresDto.getRecruteur()));
+		//offres.setRecruteur(recruteurDto.toEntity(offresDto.getRecruteur()));
 			
 		
 		

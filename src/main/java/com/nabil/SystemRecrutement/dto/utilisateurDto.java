@@ -21,6 +21,8 @@ public class utilisateurDto {
 	  private String nom;
 
 	  private String prenom;
+	  
+	  private String description;
 
 	  private String email;
 
@@ -39,6 +41,8 @@ public class utilisateurDto {
 		private String pays ;
 
 	  private String photo;
+	  
+		private Long idEntreprise;
 
 	  private EntrepriseDto entreprise;
 
@@ -53,6 +57,7 @@ public class utilisateurDto {
 	        .id(utilisateur.getId())
 	        .nom(utilisateur.getNom())
 	        .prenom(utilisateur.getPrenom())
+	        .description(utilisateur.getDescription())
 	        .email(utilisateur.getEmail())
 	        .moteDePasse(utilisateur.getMoteDePasse())
 	        .dateDeNaissance(utilisateur.getDateDeNaissance())
@@ -63,6 +68,7 @@ public class utilisateurDto {
 			.pays(utilisateur.getPays())
 			.ville(utilisateur.getVille())
 			.codePostale(utilisateur.getCodePostale())
+			//.idEntreprise(utilisateur.getIdEntreprise())
 	        .roles(
 	            utilisateur.getRoles() != null ?
 	                utilisateur.getRoles().stream()
@@ -81,6 +87,7 @@ public class utilisateurDto {
 	    utilisateur.setId(dto.getId());
 	    utilisateur.setNom(dto.getNom());
 	    utilisateur.setPrenom(dto.getPrenom());
+	    utilisateur.setDescription(dto.getDescription());
 	    utilisateur.setEmail(dto.getEmail());
 	    utilisateur.setMoteDePasse(dto.getMoteDePasse());
 	    utilisateur.setDateDeNaissance(dto.getDateDeNaissance());
@@ -92,6 +99,7 @@ public class utilisateurDto {
 	    utilisateur.setPays(dto.getPays());
 	    utilisateur.setVille(dto.getVille());
 	    utilisateur.setCodePostale(dto.getCodePostale());
+	  //  utilisateur.setIdEntreprise(dto.getIdEntreprise());
 		
 
 

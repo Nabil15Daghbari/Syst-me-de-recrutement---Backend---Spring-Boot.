@@ -1,5 +1,6 @@
 package com.nabil.SystemRecrutement.dto;
 
+import java.time.Instant;
 import java.util.Date;
 import com.nabil.SystemRecrutement.model.demandes;
 import com.nabil.SystemRecrutement.model.etatDemande;
@@ -18,9 +19,8 @@ public class demandesDto {
 	private String email ;
 	private String tele ;
 	private String poste ;
-	private Date dateDemande ;
+	private String dateDemande ;
 	private int StatutCondidature ;
-	//private CandidatDto candidat ;
 	private offresDto offre ;
 	private etatDemande etatDemande ;
 	

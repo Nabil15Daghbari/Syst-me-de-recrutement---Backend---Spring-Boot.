@@ -28,6 +28,9 @@ public class Utilisateur extends AbstractEntity {
 
 	  @Column(name = "prenom")
 	  private String prenom;
+	  
+	  @Column(name = "description")
+	  private String description;
 
 	  @Column(name = "email")
 	  private String email;
@@ -38,8 +41,6 @@ public class Utilisateur extends AbstractEntity {
 	  @Column(name = "motdepasse")
 	  private String moteDePasse;
 
-	 // @Embedded
-	 // private Adresse adresse;
 	  
 		@Column(name="adresse1")
 		private String adresse1 ;
@@ -49,18 +50,21 @@ public class Utilisateur extends AbstractEntity {
 		
 		@Column(name="codepostale")
 		private String codePostale ;
-		
+		  
 		@Column(name="pays")
 		private String pays ;
 	  
 
 	  @Column(name = "photo")
 	  private String photo;
+	  
+	  
 
 	  @ManyToOne
-	  @JoinColumn(name = "identreprise")
+	  @JoinColumn(name = "idEntreprise")
 	  private Entreprise entreprise;
 
+	 
 
 	  @OneToMany(fetch = FetchType.EAGER, mappedBy = "utilisateur")
 	  @JsonIgnore

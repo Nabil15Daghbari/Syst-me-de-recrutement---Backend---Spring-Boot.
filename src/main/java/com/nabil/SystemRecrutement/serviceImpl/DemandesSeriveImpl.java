@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import org.springframework.util.StringUtils;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.nabil.SystemRecrutement.Repository.demandesRepository;
@@ -41,10 +40,10 @@ public class DemandesSeriveImpl  implements DemandesService{
 		
 		List<String> errors =demandesValidator.validate(dto);
 		
-		if(!errors.isEmpty()) {
-			log.error("le demande in not Valid{}" , dto);
-			throw new InvalidEntityExeption("Le demandes n'est pas valide ", ErrorCodes.DEMANDES_NOT_VALID, errors );
-		}
+		//if(!errors.isEmpty()) {
+		//	log.error("le demande in not Valid{}" , dto);
+		//	throw new InvalidEntityExeption("Le demandes n'est pas valide ", ErrorCodes.DEMANDES_NOT_VALID, errors );
+		//}
 		return demandesDto.fromEntity(demandesRepository.save(demandesDto.toEntity(dto)));
 	}
 
@@ -108,15 +107,6 @@ public class DemandesSeriveImpl  implements DemandesService{
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	private demandesDto checkEtatDemande(Long idDemande) {
 		demandesDto demande = findById(idDemande);
 		
@@ -129,20 +119,77 @@ public class DemandesSeriveImpl  implements DemandesService{
 	
 	
 	
-	
-	
 	private void checkIdDemande(Long idDemande) {
 		
 		
 		if(idDemande == null) {
 			log.error("Id demande est null ");
 			
-			throw new InvalidEntityExeption("L'ID demande n'est pas null ");
-			
-		}
-		
-		
-		
+			throw new InvalidEntityExeption("L'ID demande n'est pas null ");	
+		}	
 }
+   
+	@Override
+	public List<demandesDto> findAllDemandeByIdOffre(Long idOffre) {
+		 return demandesRepository.findAllByOffreId(idOffre).stream()
+			        .map(demandesDto::fromEntity)
+			        .collect(Collectors.toList());
+	}
+
+
+
+	@Override
+	public List<demandesDto> findByEtatDemande(etatDemande etat) {
+	
+		    return demandesRepository.findDemandeByEtatDemande(etat).stream()
+		        .map(demandesDto::fromEntity)
+		        .collect(Collectors.toList());
+		  }
+
+
+
+	@Override
+	public List<Object> findDemandeByEtatDemande(etatDemande etat) {
+		return demandesRepository.countByEtatDemande(etat);
+	}
+
+
+
+	@Override
+	public List<demandes> GetNombreDemande(String annee) {
+		return demandesRepository.GetNombreDemandeParMois(annee);
+	}
+
+
+
+	@Override
+	public List<demandesDto> findByCin(String cin) {
+		 return demandesRepository.findDemandeByCin(cin).stream()
+			        .map(demandesDto::fromEntity)
+			        .collect(Collectors.toList());
+			  }
+
+
+
+	@Override
+	public List<Object> calculerNombreDemandeByOffre(Long idOffre) {
+		// TODO Auto-generated method stub
+		return demandesRepository.countByOffreId(idOffre);
+	}
+
+
+
+	@Override
+	public List<?> GetNombreDemandeByOffre() {
+		return demandesRepository.GetNombreDemande();
+	}
+
+
+
+	
+	
+	
+	
+	
 
 }

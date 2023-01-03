@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
-// @Api("/user")
+ @Api("/user")
 public interface AccountApi {
 	
 	
@@ -43,8 +43,8 @@ public interface AccountApi {
 	@PostMapping(path=APP_ROOT + "/createRole")
 	AppRole saveRole(@RequestBody AppRole appRole);
 	
-//	@PostMapping(path=APP_ROOT + "/addRoleToUser")
-//	void addRoleToUser(@RequestBody RoleUserFrom RoleUserFrom);
+	@PostMapping(path=APP_ROOT + "/addRoleToUser")
+	void addRoleToUser(@RequestBody RoleUserFrom RoleUserFrom , @RequestBody String roleName);
 	
 	
 	@GetMapping(value=APP_ROOT + "/user/{idUtilisateur}" ,  produces = MediaType.APPLICATION_JSON_VALUE)

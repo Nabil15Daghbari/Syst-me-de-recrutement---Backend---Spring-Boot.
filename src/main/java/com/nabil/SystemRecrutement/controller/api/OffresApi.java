@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.nabil.SystemRecrutement.dto.offresDto;
 import com.nabil.SystemRecrutement.model.Offres;
+import com.nabil.SystemRecrutement.model.etatDemande;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -78,4 +79,6 @@ public interface OffresApi {
 	 public Offres update(@PathVariable("id") Long id, @RequestBody Offres offre);
 	 
 	 
+	 @GetMapping(value = APP_ROOT + "/offre/avg", produces = MediaType.APPLICATION_JSON_VALUE)
+	 List<Object> avgSalaire() ;
 }

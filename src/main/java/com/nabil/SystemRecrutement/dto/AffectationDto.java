@@ -15,7 +15,8 @@ public class AffectationDto {
 	
 	private Long id ;
 	private Date dateAffectation ;
-	
+	private String nomService ;
+
 	private CandidatDto candidat ;
 	private List<ServicesDto> services  ;
 	
@@ -31,6 +32,7 @@ public static AffectationDto fromEntity(Affectation affectation ) {
 		return   AffectationDto.builder()
 				.id(affectation.getId())
 				.dateAffectation(affectation.getDateAffectation())
+				.nomService(affectation.getNomService())
 				.candidat(CandidatDto.fromEntity(affectation.getCandidat()))
 				.services(
 						   affectation.getServices()  != null ?
@@ -54,6 +56,7 @@ public static AffectationDto fromEntity(Affectation affectation ) {
 		
 		Affectation affectation =new Affectation();
 		affectation.setId(affectationDto.getId());
+		affectation.setNomService(affectationDto.getNomService());
 		affectation.setDateAffectation(affectationDto.getDateAffectation());
 		affectation.setCandidat(CandidatDto.toEntity(affectationDto.getCandidat()));
 		

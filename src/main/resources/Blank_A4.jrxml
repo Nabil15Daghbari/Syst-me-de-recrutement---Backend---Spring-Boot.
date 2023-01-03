@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="51e64e27-cd72-478d-9f25-e1109bd99dbc">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.jrdax"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<subDataset name="Empty Dataset1" uuid="0abbc64c-7aba-4844-a619-dad2d47746be">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.jrdax"/>
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<queryString>
+			<![CDATA[SELECT recrutement.demandes.adresse,
+	recrutement.demandes.cin,
+	recrutement.demandes.nom,
+	recrutement.demandes.prenom,
+	recrutement.offres.cantrat,
+	recrutement.demandes.date_demande,
+	recrutement.offres.domaine,
+	recrutement.offres.salaire,
+	recrutement.offres.ville,
+	recrutement.offres.poste
+FROM recrutement.demandes,
+	recrutement.offres]]>
+		</queryString>
+		<field name="adresse" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="adresse"/>
+			<property name="com.jaspersoft.studio.field.label" value="adresse"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="demandes"/>
+		</field>
+		<field name="cin" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="cin"/>
+			<property name="com.jaspersoft.studio.field.label" value="cin"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="demandes"/>
+		</field>
+		<field name="nom" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="nom"/>
+			<property name="com.jaspersoft.studio.field.label" value="nom"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="demandes"/>
+		</field>
+		<field name="prenom" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="prenom"/>
+			<property name="com.jaspersoft.studio.field.label" value="prenom"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="demandes"/>
+		</field>
+		<field name="cantrat" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="cantrat"/>
+			<property name="com.jaspersoft.studio.field.label" value="cantrat"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="offres"/>
+		</field>
+		<field name="date_demande" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="date_demande"/>
+			<property name="com.jaspersoft.studio.field.label" value="date_demande"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="demandes"/>
+		</field>
+		<field name="domaine" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="domaine"/>
+			<property name="com.jaspersoft.studio.field.label" value="domaine"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="offres"/>
+		</field>
+		<field name="salaire" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.name" value="salaire"/>
+			<property name="com.jaspersoft.studio.field.label" value="salaire"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="offres"/>
+		</field>
+		<field name="ville" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="ville"/>
+			<property name="com.jaspersoft.studio.field.label" value="ville"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="offres"/>
+		</field>
+		<field name="poste" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="poste"/>
+			<property name="com.jaspersoft.studio.field.label" value="poste"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="offres"/>
+		</field>
+	</subDataset>
+	<parameter name="cin" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{cin}]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT recrutement.demandes.adresse,
+	recrutement.demandes.cin,
+	recrutement.demandes.nom,
+	recrutement.demandes.prenom,
+	recrutement.offres.cantrat,
+	recrutement.demandes.date_demande,
+	recrutement.offres.domaine,
+	recrutement.offres.salaire,
+	recrutement.offres.ville,
+	recrutement.offres.poste
+FROM recrutement.demandes,
+	recrutement.offres
+	WHERE recrutement.demandes.cin=$P{cin}]]>
+	</queryString>
+	<field name="adresse" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="adresse"/>
+		<property name="com.jaspersoft.studio.field.label" value="adresse"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="demandes"/>
+	</field>
+	<field name="cin" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cin"/>
+		<property name="com.jaspersoft.studio.field.label" value="cin"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="demandes"/>
+	</field>
+	<field name="nom" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nom"/>
+		<property name="com.jaspersoft.studio.field.label" value="nom"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="demandes"/>
+	</field>
+	<field name="prenom" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="prenom"/>
+		<property name="com.jaspersoft.studio.field.label" value="prenom"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="demandes"/>
+	</field>
+	<field name="cantrat" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cantrat"/>
+		<property name="com.jaspersoft.studio.field.label" value="cantrat"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="offres"/>
+	</field>
+	<field name="date_demande" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="date_demande"/>
+		<property name="com.jaspersoft.studio.field.label" value="date_demande"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="demandes"/>
+	</field>
+	<field name="domaine" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="domaine"/>
+		<property name="com.jaspersoft.studio.field.label" value="domaine"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="offres"/>
+	</field>
+	<field name="salaire" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="salaire"/>
+		<property name="com.jaspersoft.studio.field.label" value="salaire"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="offres"/>
+	</field>
+	<field name="ville" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ville"/>
+		<property name="com.jaspersoft.studio.field.label" value="ville"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="offres"/>
+	</field>
+	<field name="poste" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="poste"/>
+		<property name="com.jaspersoft.studio.field.label" value="poste"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="offres"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="89" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#036E9C" uuid="8a186a9e-42ef-4d65-8323-6015f510073d"/>
+				<staticText>
+					<reportElement x="9" y="14" width="390" height="43" forecolor="#FFFFFF" uuid="a88fe571-ff65-482d-a709-5a44b706b736"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[CONTRAT de TRAVAIL]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="390" y="63" width="180" height="20" forecolor="#FFFFFF" uuid="70e9a8ba-a467-4312-8bbf-769d2e1977e9"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[serrie barvo intelligence
+]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="268" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="20" width="524" height="140" uuid="64542866-a469-4bc6-8428-afd85c94f6ff"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Entre les soussignés : 
+
+               La Société : serrie barvo intelligence
+               Adresse : 14 rue dermech , Tunis 1990
+              Téléphone : 28070378
+              Représenté(e) par : Syrine khemiri
+              Adresse électronique : Contact@sierrabaravointelligence.com
+
+Ci-après dénommé(e) l’entreprise,
+
+Il a été convenu ce qui suit :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="180" width="150" height="20" uuid="26d6e3ed-b471-4f95-8468-c4b343e18617"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Article 1 – Engagement ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="200" width="524" height="68" uuid="699e3777-6ed3-4990-9889-e2914262e77e"/>
+				<text><![CDATA[Sous réserve des résultats de la visite médicale d’embauche décidant de l’aptitude de M. _________________ ,    CIN _________________    au poste proposé, le Salarié est engagé par la société serrie barvo intelligence
+Ce contrat prend effet à compter du _________________ .
+La déclaration préalable à l’embauche de M. _________________ a été remise à l’SBI de _________________  ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="420" y="200" width="140" height="30" uuid="23a48175-2fa2-4628-a7a0-ad15bb48999f"/>
+				<textFieldExpression><![CDATA[$F{nom}  + ""  +$F{prenom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="191" y="223" width="100" height="22" uuid="4d0072d1-9399-46bd-9a29-8b16ae94957b"/>
+				<textFieldExpression><![CDATA[$F{date_demande}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="232" y="235" width="100" height="18" uuid="bf2acfcf-5208-442f-a62f-12f031387451"/>
+				<textFieldExpression><![CDATA[$F{prenom} + $F{nom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="235" width="100" height="28" uuid="0aaeb6dd-fade-45b5-ba27-9c19c48add99"/>
+				<textFieldExpression><![CDATA[$F{ville}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="55" y="210" width="100" height="30" uuid="1d669fe8-f981-4fbb-a4bc-a106b59d78a9"/>
+				<textFieldExpression><![CDATA[$F{cin}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="389" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="10" width="100" height="20" uuid="d74d9cc1-11f3-49ef-9315-acf9ba8ca8d1"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Article 2 - Fonctions]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="40" width="524" height="52" uuid="cb993821-5548-4dea-bbd7-09939691d2a1"/>
+				<text><![CDATA[M. _________________ en sa qualité de _________________ (poste occupé) sera plus particulièrement chargé de __________________________________ (préciser).
+Cette liste de tâches est non exhaustive et pourra être complétée en fonction des besoins de l’entreprise. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="100" width="171" height="26" uuid="a9894f01-111f-4221-b4c0-aad1e1dd16ca"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Article 3 - Lieu de travail ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="120" width="520" height="65" uuid="743a875d-7681-4a8a-904e-bd18b47bcffa"/>
+				<text><![CDATA[Le Salarié exercera ses fonctions sur le site de _______________________  
+En fonction des nécessités de service, le lieu de travail du Salarié pourra être modifié de manière temporaire ou définitive à l’intérieur du secteur géographique d’implantation de la société.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="180" width="258" height="21" uuid="4ee2eb32-a52e-425f-bb26-a42d1da5370a"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Article 4 - Rémunération]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="209" width="520" height="30" uuid="119129d0-7c93-41f9-8839-a174e1f53c7a"/>
+				<text><![CDATA[La rémunération mensuelle brute sera de _________________ DT pour un mois .
+et un contrat de type ______________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="332" y="260" width="220" height="43" uuid="f8250877-8c99-4b6e-a564-b94dc2845d6d"/>
+				<text><![CDATA[Fait à Tunis le : 
+Signature et Cachet de l’entreprise]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="40" width="110" height="30" uuid="88b76e11-72e3-4cf0-8d1b-fa92f7c1166a"/>
+				<textFieldExpression><![CDATA[$F{prenom} + $F{nom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="220" y="40" width="100" height="20" uuid="29d1463c-4ad6-4fb0-95c4-fdd3de53b515"/>
+				<textFieldExpression><![CDATA[$F{domaine}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="51" width="100" height="30" uuid="303274ca-4d3d-42f5-93a2-5c11d14b1e6e"/>
+				<textFieldExpression><![CDATA[$F{poste}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="260" y="120" width="200" height="20" uuid="c42aca87-0316-419a-bd3b-1b02b73af6ff"/>
+				<textFieldExpression><![CDATA[$F{adresse}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="232" y="210" width="100" height="30" uuid="343916c5-e206-4ab3-8c2e-8a857f2b9085"/>
+				<textFieldExpression><![CDATA[$F{salaire}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="134" y="223" width="100" height="30" uuid="4750172a-ac74-4664-bb1c-e16940940e90"/>
+				<textFieldExpression><![CDATA[$F{cantrat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="410" y="260" width="120" height="30" uuid="079f79e6-89c3-414d-8e09-75197abf351e"/>
+				<textFieldExpression><![CDATA[$F{date_demande}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+</jasperReport>

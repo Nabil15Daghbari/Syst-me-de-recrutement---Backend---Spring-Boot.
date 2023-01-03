@@ -62,4 +62,10 @@ public class OffresController implements OffresApi{
 		return offresService.update(id, offre);
 	}
 
+
+	@Override
+	public List<Object> avgSalaire() {
+		return offresService.avg();
+	}
+
 }

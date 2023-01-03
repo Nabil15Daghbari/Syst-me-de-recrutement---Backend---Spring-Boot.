@@ -49,4 +49,11 @@ public class AffectationServiceImpl implements AffectationService{
 		return null;
 	}
 
+
+	@Override
+	public AffectationDto save(AffectationDto aff) {
+		
+		return AffectationDto.fromEntity(affectationrepository.save(AffectationDto.toEntity(aff)));
+	}
+
 }

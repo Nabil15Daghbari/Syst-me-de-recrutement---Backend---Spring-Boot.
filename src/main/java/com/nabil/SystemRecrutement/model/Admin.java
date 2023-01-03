@@ -6,10 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.nabil.SystemRecrutement.dto.AdresseDto;
-
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -27,7 +24,7 @@ public class Admin extends AbstractEntity {
 	
 	private String prenom ;
 		
-	private String email ;
+	private String email ;   
 	
 	private String password ;
 	

@@ -13,7 +13,7 @@ import com.nabil.SystemRecrutement.model.AppRole;
 import com.nabil.SystemRecrutement.model.AppUser;
 import com.nabil.SystemRecrutement.service.AccountService;
 
-//@RestController
+@RestController
 //@CrossOrigin(origins = "http://localhost:4200")
 
 public class AccountRestController implements AccountApi {
@@ -42,13 +42,13 @@ public class AccountRestController implements AccountApi {
 	}
 
 
-//	@Override
-//	public void addRoleToUser(RoleUserFrom RoleUserFrom) {
+	@Override
+	public void addRoleToUser(RoleUserFrom RoleUserFrom , String roleName) {
 		
-//		accountService.addRoleToUser( RoleUserFrom.getUsername() , RoleUserFrom.getRolename());
+		accountService.addRoleToUser( RoleUserFrom.getUsername() , roleName);
 
 		
-//	}
+	}
 
 
 	@Override

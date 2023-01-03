@@ -13,7 +13,11 @@ import lombok.Setter;
 public class ExtendedUser extends User {
 
 	
-	  @Getter
+	  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Getter
 	  @Setter
 	  private Long idEntreprise;
 	

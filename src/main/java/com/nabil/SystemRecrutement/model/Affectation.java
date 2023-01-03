@@ -27,6 +27,8 @@ public class Affectation  extends AbstractEntity{
 	
 	
 	private Date dateAffectation ; 
+	
+	private String nomService ;
 
 	@ManyToOne
     @JoinColumn(name = "idcandidat")

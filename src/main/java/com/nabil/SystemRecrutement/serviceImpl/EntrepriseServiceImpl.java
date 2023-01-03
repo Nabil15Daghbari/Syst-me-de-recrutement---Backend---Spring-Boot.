@@ -57,7 +57,7 @@ public class EntrepriseServiceImpl implements EntrepriseService {
         // roles.getRoleName() =>  w athi tetzad fi blaset "ADMIN "
     // taba3 vidio msajel ela youtpe " authentification bay role "
     RolesDto rolesDto = RolesDto.builder()	
-        .roleName("ADMIN")
+        .roleName("UTILISATEUR")
         .utilisateur(savedUser)
         .build();
 
@@ -74,12 +74,13 @@ public class EntrepriseServiceImpl implements EntrepriseService {
     	.codePostale(dto.getCodePostale())	
         .nom(dto.getNom())
         .prenom(dto.getCodeFiscal())
+        .description(dto.getDescription())
         .email(dto.getEmail())
         .moteDePasse(generateRandomPassword())
         .entreprise(dto)
         .dateDeNaissance(Instant.now())
         .photo(dto.getPhoto())
-        .build();
+        .build();   
   }
 
   private String generateRandomPassword() {
@@ -88,7 +89,7 @@ public class EntrepriseServiceImpl implements EntrepriseService {
 
   @Override
   public EntrepriseDto findById(Long id) {
-    if (id == null) {
+    if (id == null) {    
       log.error("Entreprise ID is null");
       return null;
     }

@@ -1,7 +1,9 @@
 package com.nabil.SystemRecrutement.model;
 
 public enum  etatDemande {
-	
-	ENCOURS , ADMIS , LISTEATTENTE , CONVOQUUEPOURENTRETIEN
-
+	EN_COURS ,
+	ADMIS ,
+	LISTE_ATTENTE ,   
+	CONVOQUUE_ENTRETIEN   
+ 
 }

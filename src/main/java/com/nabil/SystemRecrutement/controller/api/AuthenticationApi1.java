@@ -18,7 +18,7 @@ import static com.nabil.SystemRecrutement.util.Constants.AUTHENTICATION_ENDPOINT
 
 
 
-@Api("authentication")
+// @Api("authentication")
 public interface AuthenticationApi1  {
 	
 	  @PostMapping(AUTHENTICATION_ENDPOINT + "/authenticate")

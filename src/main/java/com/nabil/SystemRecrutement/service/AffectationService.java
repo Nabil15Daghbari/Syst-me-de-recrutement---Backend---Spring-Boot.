@@ -7,6 +7,8 @@ import com.nabil.SystemRecrutement.model.Affectation;
 
 public interface AffectationService {
 	
+	AffectationDto save(AffectationDto aff) ;
+	
 	List<AffectationDto> findAll();
 	
     List<AffectationDto> findAffectationByIdCandidat(Long idCandidat);

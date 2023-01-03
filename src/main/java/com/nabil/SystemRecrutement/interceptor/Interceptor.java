@@ -2,11 +2,15 @@ package com.nabil.SystemRecrutement.interceptor;
 
 import org.hibernate.EmptyInterceptor;
 import org.slf4j.MDC;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
+@Component
 public class Interceptor extends EmptyInterceptor {
 
-  @Override
+  private static final long serialVersionUID = 1L;
+
+@Override
   public String onPrepareStatement(String sql) {
     if (StringUtils.hasLength(sql) && sql.toLowerCase().startsWith("select")) {
       // select utilisateu0_.

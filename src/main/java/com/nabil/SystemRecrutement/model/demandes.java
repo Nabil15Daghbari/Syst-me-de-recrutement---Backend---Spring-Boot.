@@ -1,16 +1,13 @@
 package com.nabil.SystemRecrutement.model;
 
-import java.util.Date;
-
+import java.time.Instant;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -33,16 +30,25 @@ public class demandes extends AbstractEntity {
 	private String email ;
 	private String tele ;
 	private String poste ;
-	private Date dateDemande ;
+	
+	private String dateDemande ;
+	
+	@Enumerated(EnumType.STRING)
 	private etatDemande etatDemande ;
 	
 	
+	@Column(name = "identreprise")
+	private Long idEntreprise;
+
 	
 	@ManyToOne
 	private Candidat candidat ;
 	
 	
 	@ManyToOne
+	@JoinColumn(name = "idoffre")
 	private Offres offre ;
+	
+	
 
 }

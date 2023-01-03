@@ -37,4 +37,11 @@ public class AffectationController implements AffectationApi{
 		return affectationService.findAffectationByIdCandidat(idCandidat);
 	}
 
+
+
+	@Override
+	public AffectationDto save(AffectationDto dto) {
+		return affectationService.save(dto);
+	}
+
 }

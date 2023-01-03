@@ -133,6 +133,14 @@ public class OffresServiceImpl implements OffresService{
 
 		return offresRepository.saveAndFlush(offreUpdate);
 	}
+
+
+
+
+	@Override
+	public List<Object> avg() {
+		return offresRepository.avg();  
+	}
 		
 	
 

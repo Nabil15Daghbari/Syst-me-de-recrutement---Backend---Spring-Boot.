@@ -1,5 +1,6 @@
 package com.nabil.SystemRecrutement.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -19,6 +20,8 @@ public class Services  extends AbstractEntity {
 	
 	private String nomServices ;
 	
+	@Column(name = "identreprise")
+	private Long idEntreprise;
 	
 	@ManyToOne
 	private Affectation affectation ;

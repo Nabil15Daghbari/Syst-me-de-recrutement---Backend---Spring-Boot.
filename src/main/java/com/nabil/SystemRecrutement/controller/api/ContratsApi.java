@@ -1,6 +1,8 @@
 package com.nabil.SystemRecrutement.controller.api;
 
 import static com.nabil.SystemRecrutement.util.Constants.APP_ROOT;
+
+import java.io.IOException;
 import java.util.List;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,6 +15,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import net.sf.jasperreports.engine.JRException;
 
 @Api( "/contrat")
 public interface ContratsApi {
@@ -65,5 +68,13 @@ public interface ContratsApi {
 	})
 	 contratsDto findByCodeContrat(@PathVariable("codeContrat") String codeContrat);
 	*/
+	 
+	 @GetMapping(value=APP_ROOT + "/report/{ReportName}/{cin}" )
+	 @ApiOperation(value="rechercher tous les contrats " , notes="Cette methode permet de recupurer tous les contrat " , responseContainer = "List<contratsDto>")
+		@ApiResponses(value= {
+				@ApiResponse(code= 200 , message ="les contrats a ete trouvee dans l BD") ,
+				@ApiResponse(code=400 , message="Aucun contrats n'existe dans BDD avec l'ID fourni ")
+		})
+	 byte[] getReportfile(@PathVariable String ReportName, @PathVariable String cin) throws JRException, IOException;
 
 }

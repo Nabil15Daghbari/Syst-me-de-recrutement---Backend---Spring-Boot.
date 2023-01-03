@@ -38,6 +38,7 @@ public class ApplicationRequestFilter extends OncePerRequestFilter {
     if(authHeader != null && authHeader.startsWith("Bearer ")) {
       jwt = authHeader.substring(7);
       userEmail = jwtUtil.extractUsername(jwt);
+      idEntreprise = jwtUtil.extractIdEntreprise(jwt);
     }
 
     if (userEmail != null && SecurityContextHolder.getContext().getAuthentication() == null) {
