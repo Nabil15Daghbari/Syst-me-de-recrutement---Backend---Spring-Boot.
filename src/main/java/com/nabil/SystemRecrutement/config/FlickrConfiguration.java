@@ -53,7 +53,7 @@ public class FlickrConfiguration {
    	OAuth10aService service = new ServiceBuilder(apiKey)
    			
    			.apiSecret(apiSecret)
-   			// FlickrPerm : c'est la permution qui va donner a mon application : write , read  , Delete(read , write )  les photo 
+   			// FlickrPerm : c'est la permution qui va donner a notre application : write , read  , Delete(read , write )  les photo 
    			.build(FlickrApi.instance(FlickrPerm.DELETE)) ;
    	
    	final Scanner scanner = new Scanner(System.in);
@@ -63,7 +63,7 @@ public class FlickrConfiguration {
    	final String authUrl = service.getAuthorizationUrl(request);
    	
    	System.out.println(authUrl);
-   	System.out.println("Paste it here >> ");
+   	System.out.println("Collez-le ici >> ");
    	
    	final String authVerifier = scanner.nextLine();
    	
@@ -91,6 +91,122 @@ public class FlickrConfiguration {
   
   */
   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @Bean
     public Flickr getFlickr() {
     	

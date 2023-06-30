@@ -158,8 +158,7 @@ FROM recrutement.demandes,
 					<textElement textAlignment="Right">
 						<font size="14" isBold="false"/>
 					</textElement>
-					<text><![CDATA[serrie barvo intelligence
-]]></text>
+					<text><![CDATA[Sierra Bravo Intelligence]]></text>
 				</staticText>
 			</frame>
 		</band>
@@ -173,11 +172,11 @@ FROM recrutement.demandes,
 				</textElement>
 				<text><![CDATA[Entre les soussignés : 
 
-               La Société : serrie barvo intelligence
+               La Société : Sierra Bravo Intelligence
                Adresse : 14 rue dermech , Tunis 1990
               Téléphone : 28070378
               Représenté(e) par : Syrine khemiri
-              Adresse électronique : Contact@sierrabaravointelligence.com
+              Adresse électronique : Contact@sierrabravointelligence.com
 
 Ci-après dénommé(e) l’entreprise,
 

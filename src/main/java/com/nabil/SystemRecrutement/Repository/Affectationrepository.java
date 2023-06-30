@@ -9,7 +9,7 @@ import com.nabil.SystemRecrutement.model.Affectation;
 
 public interface Affectationrepository  extends JpaRepository<Affectation, Long>{
 	
-	  List<Affectation> findByCandidatId(Long idCandidat);
+	  List<Affectation> findByDemandesId(Long idDemande);
 
 
 }

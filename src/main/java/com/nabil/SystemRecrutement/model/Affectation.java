@@ -26,13 +26,17 @@ import lombok.NoArgsConstructor;
 public class Affectation  extends AbstractEntity{
 	
 	
-	private Date dateAffectation ; 
+	private String dateAffectation ; 
 	
 	private String nomService ;
 
 	@ManyToOne
     @JoinColumn(name = "idcandidat")
 	private Candidat candidat ;
+	
+	@ManyToOne
+    @JoinColumn(name = "iddemande")
+	private demandes demandes ;
 	
 	
 	@OneToMany(mappedBy = "affectation")

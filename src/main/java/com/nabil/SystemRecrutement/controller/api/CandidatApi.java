@@ -25,7 +25,7 @@ import com.nabil.SystemRecrutement.model.Candidat;
 
 
 
-@Api( "/candidat")
+//@Api( "/candidat")
 public interface CandidatApi {
 	
 	

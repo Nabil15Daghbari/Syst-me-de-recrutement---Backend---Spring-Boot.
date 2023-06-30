@@ -11,7 +11,7 @@ public interface AffectationService {
 	
 	List<AffectationDto> findAll();
 	
-    List<AffectationDto> findAffectationByIdCandidat(Long idCandidat);
+    List<AffectationDto> findAffectationByIdDemande(Long idDemande);
     
     Affectation update(Long id , Affectation affectation) ;
     

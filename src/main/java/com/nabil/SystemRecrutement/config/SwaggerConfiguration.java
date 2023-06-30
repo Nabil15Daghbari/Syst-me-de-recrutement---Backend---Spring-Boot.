@@ -29,7 +29,7 @@ public class SwaggerConfiguration {
 	
     @Bean
 	public Docket api() {
-    	
+    	 
     	
     	
 		return new Docket(DocumentationType.SWAGGER_2)
@@ -48,14 +48,19 @@ public class SwaggerConfiguration {
 				.apis(RequestHandlerSelectors.basePackage("com.nabil.SystemRecrutement"))
 				.paths(PathSelectors.any())
 				.build();
-	}
 	
     
     
+             
     
+            }
 	
-	
-	
+ 
+    
+    
+ 
+    
+    
 	
 	private ApiKey apiKey() {
 		

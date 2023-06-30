@@ -34,7 +34,7 @@ public class AffectationController implements AffectationApi{
 
 	@Override
 	public List<AffectationDto> findAffectationByIdCandidat(Long idCandidat) {
-		return affectationService.findAffectationByIdCandidat(idCandidat);
+		return affectationService.findAffectationByIdDemande(idCandidat);
 	}
 
 

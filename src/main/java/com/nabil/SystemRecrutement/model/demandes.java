@@ -1,12 +1,15 @@
 package com.nabil.SystemRecrutement.model;
 
 import java.time.Instant;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -50,5 +53,7 @@ public class demandes extends AbstractEntity {
 	private Offres offre ;
 	
 	
+	@OneToMany(mappedBy = "demandes")
+	private List<Affectation> affectation ;
 
 }

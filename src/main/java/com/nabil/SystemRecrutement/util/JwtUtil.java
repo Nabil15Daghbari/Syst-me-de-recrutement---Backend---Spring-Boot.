@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.function.Function;
 
 @Service
-// ce service qui va permet de générer le token et sa valisation ou expiraration 
+// ce service qui va permet de générer le token et sa validation ou expiraration 
 public class JwtUtil {
 	
 	// pour générer un token on doit avoire un SECRET_KEY

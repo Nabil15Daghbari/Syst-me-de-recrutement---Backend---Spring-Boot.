@@ -1,5 +1,6 @@
 package com.nabil.SystemRecrutement.config;
- 
+// .anyRequest().authenticated()
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -78,7 +79,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	        "/webjars/**",
 	        "/v3/api-docs/**",
 	        "/swagger-ui/**").permitAll()
-	      //  .anyRequest().authenticated()
 	        .and().sessionManagement()
 	        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 	    ;
@@ -86,6 +86,171 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	    http.addFilterBefore(applicationRequestFilter, UsernamePasswordAuthenticationFilter.class);
 	  }
 
+	  
+	 
+	  @Bean
+	  public AuthenticationManager customAuthenticationManager() throws Exception {
+	    return authenticationManagerBean();
+	  }
+
+	  @Bean(name = "passwordEncoder")
+	  public static  PasswordEncoder passwordEncoder() {
+	    return new BCryptPasswordEncoder();
+	 
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  }
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  @Override
+	  public void configure(WebSecurity web) {
+	      web.httpFirewall(defaultHttpFirewall());
+	  }
+	   
+	  @Bean
+	  public HttpFirewall defaultHttpFirewall() {
+	      return new DefaultHttpFirewall();
+	  }
+	  
+	   
 	  
 	  @Bean  
 	  public CorsFilter corsFilter() {
@@ -99,27 +264,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	    return new CorsFilter(source);
 	  }
 
-	  @Bean
-	  public AuthenticationManager customAuthenticationManager() throws Exception {
-	    return authenticationManagerBean();
-	  }
-
-	  @Bean(name = "passwordEncoder")
-	  public static  PasswordEncoder passwordEncoder() {
-	    return new BCryptPasswordEncoder();
-	  }
-	  
-	  
-	  
-	  @Override
-	  public void configure(WebSecurity web) {
-	      web.httpFirewall(defaultHttpFirewall());
-	  }
-	   
-	  @Bean
-	  public HttpFirewall defaultHttpFirewall() {
-	      return new DefaultHttpFirewall();
-	  }
 	  
 	
 }

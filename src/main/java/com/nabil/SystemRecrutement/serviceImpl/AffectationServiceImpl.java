@@ -36,8 +36,8 @@ public class AffectationServiceImpl implements AffectationService{
 
 
 	@Override
-	public List<AffectationDto> findAffectationByIdCandidat(Long idCandidat) {
-	 return affectationrepository.findByCandidatId(idCandidat).stream()
+	public List<AffectationDto> findAffectationByIdDemande(Long idDemande) {
+	 return affectationrepository.findByDemandesId(idDemande).stream()
 		        .map(AffectationDto::fromEntity)
 		        .collect(Collectors.toList());
 	}

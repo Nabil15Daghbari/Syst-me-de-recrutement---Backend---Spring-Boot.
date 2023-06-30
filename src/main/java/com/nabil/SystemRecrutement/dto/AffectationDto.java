@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 import com.nabil.SystemRecrutement.model.Affectation;
+import com.nabil.SystemRecrutement.model.demandes;
 
 import lombok.Builder;
 import lombok.Data;
@@ -14,10 +15,10 @@ import lombok.Data;
 public class AffectationDto {
 	
 	private Long id ;
-	private Date dateAffectation ;
+	private String dateAffectation ;
 	private String nomService ;
 
-	private CandidatDto candidat ;
+	private demandesDto demandes ;
 	private List<ServicesDto> services  ;
 	
 	
@@ -33,7 +34,7 @@ public static AffectationDto fromEntity(Affectation affectation ) {
 				.id(affectation.getId())
 				.dateAffectation(affectation.getDateAffectation())
 				.nomService(affectation.getNomService())
-				.candidat(CandidatDto.fromEntity(affectation.getCandidat()))
+				.demandes(demandesDto.fromEntity(affectation.getDemandes()))
 				.services(
 						   affectation.getServices()  != null ?
 					   affectation.getServices() .stream()
@@ -58,7 +59,7 @@ public static AffectationDto fromEntity(Affectation affectation ) {
 		affectation.setId(affectationDto.getId());
 		affectation.setNomService(affectationDto.getNomService());
 		affectation.setDateAffectation(affectationDto.getDateAffectation());
-		affectation.setCandidat(CandidatDto.toEntity(affectationDto.getCandidat()));
+		affectation.setDemandes(demandesDto.toEntity(affectationDto.getDemandes()));
 		
 		
 		return affectation ;
